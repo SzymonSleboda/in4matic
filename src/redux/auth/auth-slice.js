@@ -1,4 +1,4 @@
-import { register } from "./authOperations";
+import { register } from "./auth-operations";
 import { createSlice, isAnyOf } from "@reduxjs/toolkit";
 
 const initialState = {
