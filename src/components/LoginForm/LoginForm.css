@@ -1,0 +1,58 @@
+.loginForm {
+  max-width: 320px;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  margin: 0 auto;
+}
+.loginFormHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 60px;
+}
+
+.loginFormField {
+  display: block;
+}
+.btn {
+  width: 280px;
+  height: 50px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  border: none;
+  margin-bottom: 20px;
+}
+
+.primary {
+  background-color: #24cca7;
+  color: white;
+}
+
+.secondary {
+  background-color: transparent;
+  border: 1px solid #4a56e2;
+  color: #4a56e2;
+}
+
+.input {
+  border: none;
+  outline: none;
+  margin-left: 20px;
+}
+
+.inputPassword {
+  margin-left: 24px;
+}
+
+.textField {
+  display: flex;
+  align-items: end;
+  width: 280px;
+  padding-left: 10px;
+  padding-bottom: 8px;
+  margin-bottom: 40px;
+  border-bottom: 1px solid #e0e0e0;
+}
