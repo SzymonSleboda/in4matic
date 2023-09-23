@@ -1,0 +1,23 @@
+:root {
+  --primary-brand-color: #4a56e2;
+  --secondary-brand-color: #24cca8;
+  --accent-brand-color: #ff6596;
+  --logout-button-color: #bdbdbd;
+  --light-background-color: #ffffff;
+  --accent-background-color: #e7eaf2;
+  --primary-background-color: #c5baff;
+  --secondary-background-color: #ffd8d0;
+  --transactions-border-color: #dcdcdf;
+  --transactions-element-background: #4a57e21e;
+  --progress-bar-background: #e5f1ef;
+  --element-shadow: #24cca880;
+  --modal-overlay-background: #00000040;
+  --category-select-background: #00000008;
+  --category-select-shadow: #0000001a;
+  --active-nav-color: #4e58dd;
+  --inactive-nav-color: #7079e3;
+  --gray-background-color: #dcdcdf;
+  --main-switch-color: #e0e0e0;
+  --light-font-color: #fff;
+  --dark-font-color: #000;
+}
