@@ -2,7 +2,7 @@ import { passwordStrength } from "check-password-strength";
 
 import css from "./PasswordStrength.module.css";
 
-const PasswordStrength = (props) => {
+export const PasswordStrength = (props) => {
   const strength = passwordStrength(props.value, [
     {
       id: 0,
@@ -42,5 +42,5 @@ const PasswordStrength = (props) => {
     progress = 100;
   }
 
-  return <StrengthBar className={css.container} value={progress} max="100" />;
+  return <div className={css.container} value={progress} max="100"></div>;
 };
