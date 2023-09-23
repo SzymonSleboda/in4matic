@@ -1,12 +1,10 @@
-import { Spinner } from "./components/Spinner/Spinner";
-import { DataDoughnut } from "./components/Chart/Chart";
+// import Statistics from "./pages/Statistics";
 
 export const App = () => {
   return (
     <div>
-      <Spinner />
-      <DataDoughnut />
       <h1>Hello World</h1>
+      {/* <Statistics /> */}
     </div>
   );
 };
