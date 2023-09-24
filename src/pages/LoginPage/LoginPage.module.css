@@ -1,0 +1,106 @@
+.loginPageImg {
+  display: none;
+}
+
+.ellipsePink {
+  display: none;
+}
+
+.ellipsePurple {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .loginPage {
+    background-color: #e7eaf2;
+  }
+
+  .containerLoginPage {
+    max-width: 768px;
+    margin: 0 auto;
+    position: relative;
+    height: 100vh;
+    padding-top: 60px;
+  }
+
+  .loginPageImg {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 40px;
+    margin-bottom: 50px;
+    margin-right: 60px;
+  }
+
+  .loginPageWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .loginPageBox {
+    margin: 0 auto;
+  }
+
+  .backgroundImg {
+    width: 260px;
+    height: 250px;
+  }
+
+  .ellipsePink {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+  }
+
+  .ellipsePurple {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .loginPageWrapper {
+    flex-direction: row;
+    flex-grow: 1;
+    height: 100%;
+    align-items: center;
+  }
+
+  .containerLoginPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1280px;
+    padding-top: 0;
+  }
+
+  .loginPageImg {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .backgroundImg {
+    width: 435px;
+    height: 419px;
+    margin-top: 150px;
+  }
+
+  .loginPageBox {
+    width: 23%;
+  }
+
+  .ellipsePinkWrapper {
+    background-color: rgb(255, 255, 255, 0.4);
+    filter: blur(50px);
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+
+  .ellipsePink {
+    position: static;
+  }
+}
