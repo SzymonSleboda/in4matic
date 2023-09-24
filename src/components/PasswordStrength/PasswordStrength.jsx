@@ -1,46 +1,39 @@
-import { passwordStrength } from "check-password-strength";
+import React from "react";
+import styles from "./PasswordStrength.module.css";
+import zxcvbn from "zxcvbn";
 
-import css from "./PasswordStrength.module.css";
+export const PasswordStrength = ({ password }) => {
+  const testResult = zxcvbn(password);
+  const num = (testResult.score * 100) / 4;
 
-export const PasswordStrength = (props) => {
-  const strength = passwordStrength(props.value, [
-    {
-      id: 0,
-      value: "Tooweak",
-      minDiversity: 0,
-      minLength: 0,
-    },
-    {
-      id: 1,
-      value: "Weak",
-      minDiversity: 2,
-      minLength: 6,
-    },
-    {
-      id: 2,
-      value: "Medium",
-      minDiversity: 3,
-      minLength: 8,
-    },
-    {
-      id: 3,
-      value: "Strong",
-      minDiversity: 4,
-      minLength: 12,
-    },
-  ]).value;
+  const funcProgressColor = () => {
+    switch (testResult.score) {
+      case 0:
+        return "#828282";
+      case 1:
+        return "#EA1111";
+      case 2:
+        return "#FFAD00";
+      case 3:
+        return "#9bc158";
+      case 4:
+        return "#00b500";
+      default:
+        return "none";
+    }
+  };
 
-  let progress;
+  const changePasswordColor = () => ({
+    width: `${num}%`,
+    background: funcProgressColor(),
+    height: "5px",
+  });
 
-  if (strength === "Tooweak") {
-    progress = 25;
-  } else if (strength === "Weak") {
-    progress = 50;
-  } else if (strength === "Medium") {
-    progress = 75;
-  } else {
-    progress = 100;
-  }
-
-  return <div className={css.container} value={progress} max="100"></div>;
+  return (
+    <>
+      <div className={styles.progressBar}>
+        <div className={styles.progress} style={changePasswordColor()}></div>
+      </div>
+    </>
+  );
 };

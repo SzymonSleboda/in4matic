@@ -32,7 +32,9 @@ export const store = configureStore({
     }),
 });
 
-export const persistor = persistStore(store, null, () => {
+export const persistor = persistStore(store);
+
+persistor.subscribe(() => {
   axios.defaults.headers.common.Authorization = `Bearer ${
     store.getState().auth.token
   }`;
