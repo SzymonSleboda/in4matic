@@ -1,0 +1,119 @@
+.title {
+  font-family: "Popins";
+}
+
+.loginPageImg {
+  display: none;
+}
+
+.ellipsePink {
+  display: none;
+}
+
+.ellipsePurple {
+  display: none;
+}
+
+@media screen and (min-width: 768px) {
+  .loginPage {
+    background-color: #e7eaf2;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .containerLoginPage {
+    max-width: 768px;
+    margin: 0 auto;
+    position: relative;
+    height: 100vh;
+    padding-top: 60px;
+    min-height: 915px;
+    width: 100%;
+    max-height: 1024px;
+  }
+
+  .loginPageImg {
+    display: flex;
+    align-items: center;
+    position: relative;
+    gap: 40px;
+    margin-bottom: 50px;
+    margin-right: 60px;
+  }
+
+  .loginPageWrapper {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .loginPageBox {
+    margin: 0 auto;
+  }
+
+  .backgroundImg {
+    width: 260px;
+    height: 250px;
+  }
+
+  .ellipsePink {
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+  }
+
+  .ellipsePurple {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .loginPage {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .loginPageWrapper {
+    flex-direction: row;
+    flex-grow: 1;
+    height: 100%;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .containerLoginPage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    max-width: 1280px;
+    padding-top: 0;
+    max-height: 720px;
+    min-height: auto;
+    padding-left: 76px;
+  }
+
+  .loginPageImg {
+    flex-direction: column;
+    gap: 28px;
+    margin-right: 0px;
+  }
+
+  .backgroundImg {
+    width: 435px;
+    height: 419px;
+    margin-top: 120px;
+  }
+
+  .ellipsePinkWrapper {
+    display: none;
+  }
+
+  .ellipsePink {
+    position: static;
+  }
+}

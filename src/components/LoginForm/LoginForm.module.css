@@ -1,0 +1,137 @@
+.loginForm {
+  max-width: 320px;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-items: center;
+  margin: 0 auto;
+  font-family: "Circle";
+}
+.loginFormHeader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 60px;
+}
+
+.loginFormField {
+  display: block;
+}
+.btn {
+  width: 280px;
+  height: 50px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  border: none;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  margin-top: 40px;
+  outline: none;
+}
+
+.btn:last-child {
+  margin-bottom: 0;
+  margin-top: 0;
+}
+
+.primary {
+  background-color: #24cca7;
+  color: white;
+}
+
+.secondary {
+  background-color: transparent;
+  border: 1px solid #4a56e2;
+  color: #4a56e2;
+}
+
+.input {
+  border: none;
+  outline: none;
+  margin-left: 20px;
+}
+
+.inputPassword {
+  margin-left: 22px;
+}
+
+.passwordIcon {
+  margin-left: 2px;
+}
+
+.textField {
+  display: flex;
+  width: 280px;
+  padding-left: 10px;
+  padding-bottom: 8px;
+  margin-top: 40px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.validation {
+  display: block;
+  color: red;
+  margin-top: 8px;
+}
+
+@media screen and (min-width: 768px) {
+  .loginForm {
+    max-width: 533px;
+    width: 533px;
+    border-radius: 20px;
+    background-color: white;
+    height: auto;
+    padding-top: 40px;
+    padding-bottom: 62px;
+    padding-left: 58px;
+    padding-right: 58px;
+    justify-content: center;
+    position: relative;
+  }
+
+  .boxForm {
+    flex-grow: 1;
+  }
+
+  .loginFormField {
+    width: 100%;
+  }
+
+  .btn {
+    max-width: 300px;
+    height: 50px;
+  }
+
+  .btn:last-child {
+    margin-bottom: 0;
+  }
+
+  .input {
+    width: 100%;
+  }
+
+  .logoIcon {
+    width: 181px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .loginFormWrapper {
+    height: 100%;
+    background-image: url(../../assets/images/LoginForm/ellipse-pink-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    padding-left: 107px;
+    padding-right: 91px;
+  }
+  .loginForm {
+    width: 533px;
+  }
+
+  .btn {
+    margin-bottom: 20px;
+  }
+}

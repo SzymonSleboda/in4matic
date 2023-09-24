@@ -24,7 +24,7 @@ export const store = configureStore({
   reducer: {
     auth: persistReducer(authPersistConfig, authReducer),
   },
-  middleware: (getDefaultMiddleware) =>
+  middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
@@ -32,7 +32,9 @@ export const store = configureStore({
     }),
 });
 
-export const persistor = persistStore(store, null, () => {
+export const persistor = persistStore(store);
+
+persistor.subscribe(() => {
   axios.defaults.headers.common.Authorization = `Bearer ${
     store.getState().auth.token
   }`;

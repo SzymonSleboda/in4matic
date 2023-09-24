@@ -17,7 +17,7 @@ import logo from "../../assets/icons/logo.svg";
 import { PasswordStrength } from "../PasswordStrength/PasswordStrength";
 import { register } from "../../redux/auth/auth-operations";
 
-import css from "./RegistrationForm.module.css";
+import css from "./RegistrationFrom.module.css";
 
 export const RegistrationForm = () => {
   const [password, setPassword] = useState("");
@@ -35,7 +35,7 @@ export const RegistrationForm = () => {
       .max(12, "Password is too long - should be 12 characters maximum."),
     confirmPassword: Yup.string()
       .required("Please re-type your password.")
-      .oneOf([ref("password")], "Passwords do not match."),
+      .oneOf([Yup.ref("password")], "Passwords do not match."), // Poprawione odwołanie do pola hasła
     name: Yup.string()
       .required("Please provide your name")
       .min(1, "First name is too short - should be 1 character minimum.")
@@ -50,6 +50,8 @@ export const RegistrationForm = () => {
     dispatch(register({ name, email, password }));
     navigate("/login");
   };
+
+  const screenWidth = window.innerWidth;
 
   return (
     <Formik
@@ -115,7 +117,7 @@ export const RegistrationForm = () => {
                   style={{
                     color: "#ff6596",
                     position: "absolute",
-                    bottom: "-30px",
+                    bottom: screenWidth < 765 ? "-45px" : "-30px",
                     left: "0",
                     fontFamily: "Poppins",
                     fontSize: "13px",
@@ -150,8 +152,8 @@ export const RegistrationForm = () => {
                   <VisibilityIcon style={{ color: "#e0e0e0" }} />
                 )}
               </span>
-              <PasswordStrength password={password} />
             </div>
+            <PasswordStrength password={password} />
             <div className={css.inputContainer}>
               {touched.confirmPassword && errors.confirmPassword ? (
                 <p
