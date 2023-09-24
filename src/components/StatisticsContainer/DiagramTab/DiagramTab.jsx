@@ -3,7 +3,7 @@
 export default function DiagramTab() {
   return (
     <div>
-      <table>
+      <table> 
         <thead>
           <tr>
             <th scope="col">Category</th>
