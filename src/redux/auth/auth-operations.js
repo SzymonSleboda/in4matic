@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-axios.defaults.baseURL = "http://localhost:3000";
+axios.defaults.baseURL = "https://wallet.goit.ua/";
 
 const token = {
   set(token) {
@@ -24,6 +24,20 @@ export const register = createAsyncThunk(
       return data;
     } catch (error) {
       return rejectWithValue(toast.error("Email is already in use"));
+    }
+  }
+);
+
+export const login = createAsyncThunk(
+  "user/login",
+  async (credentials, { rejectWithValue }) => {
+    try {
+      const { data } = await axios.post("/api/auth/sign-in", credentials);
+      toast.success("Login is successful!");
+      token.set(data.token);
+      return data;
+    } catch (error) {
+      return rejectWithValue(toast.error(error.response.data.message));
     }
   }
 );
