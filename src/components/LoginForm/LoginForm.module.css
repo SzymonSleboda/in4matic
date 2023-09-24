@@ -5,6 +5,7 @@
   align-items: center;
   justify-items: center;
   margin: 0 auto;
+  font-family: "Circle";
 }
 .loginFormHeader {
   display: flex;
@@ -25,10 +26,13 @@
   border: none;
   margin: 0 auto;
   margin-bottom: 20px;
+  margin-top: 40px;
+  outline: none;
 }
 
 .btn:last-child {
   margin-bottom: 0;
+  margin-top: 0;
 }
 
 .primary {
@@ -58,12 +62,17 @@
 
 .textField {
   display: flex;
-  align-items: end;
   width: 280px;
   padding-left: 10px;
   padding-bottom: 8px;
-  margin-bottom: 40px;
+  margin-top: 40px;
   border-bottom: 1px solid #e0e0e0;
+}
+
+.validation {
+  display: block;
+  color: red;
+  margin-top: 8px;
 }
 
 @media screen and (min-width: 768px) {
@@ -86,7 +95,6 @@
   }
 
   .loginFormField {
-    margin-bottom: 42px;
     width: 100%;
   }
 
@@ -111,7 +119,9 @@
 @media screen and (min-width: 1280px) {
   .loginFormWrapper {
     height: 100%;
-    background-color: rgb(255, 255, 255, 0.4);
+    background-image: url(../../assets/images/LoginForm/ellipse-pink-background.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
     align-items: center;
     padding-left: 107px;
@@ -119,7 +129,6 @@
   }
   .loginForm {
     width: 533px;
-    height: 468px;
   }
 
   .btn {
