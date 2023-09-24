@@ -41,3 +41,18 @@ export const login = createAsyncThunk(
     }
   }
 );
+
+export const logout = createAsyncThunk(
+  "auth/logout",
+  async (_, { rejectWithValue }) => {
+    try {
+      await axios.get("/api/users/logout");
+      token.unset();
+      toast.success("You are logged out");
+    } catch (error) {
+      return rejectWithValue(
+        toast.error("Something went wrong. Please, try again")
+      );
+    }
+  }
+);
