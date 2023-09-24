@@ -1,0 +1,88 @@
+.header {
+  height: 60px;
+  display: flex;
+  background-color: white;
+  font-size: 18px;
+}
+
+.containerHeader {
+  display: flex;
+  width: 100%;
+  padding: 15px 20px 15px 20px;
+  max-width: 1400px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logout {
+  display: flex;
+  gap: 4px;
+  height: 30px;
+  align-items: center;
+  fill: #bdbdbd;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+svg {
+  width: 18px;
+  height: 18px;
+  transition: fill 150ms;
+}
+
+.nameText {
+  margin-right: -4px;
+  margin-bottom: 2px;
+}
+
+.exitText {
+  display: none;
+}
+
+.exitButton {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  transition: color 150ms;
+}
+
+.exitButton span {
+  margin-left: 6px;
+}
+
+.divider {
+  display: none;
+}
+
+.button {
+  outline: none;
+  border: none;
+  background-color: transparent;
+  color: #bdbdbd;
+  font-size: 18px;
+}
+
+@media screen and (min-width: 768px) {
+  .header {
+    height: 80px;
+  }
+
+  .exitText {
+    display: block;
+  }
+
+  .nameText {
+    margin-right: 0;
+  }
+
+  .divider {
+    display: block;
+    height: 30px;
+    margin-right: 4px;
+    border: 1px solid #bdbdbd;
+  }
+
+  .logo {
+    width: 191px;
+  }
+}
