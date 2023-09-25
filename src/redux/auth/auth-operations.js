@@ -56,3 +56,16 @@ export const logout = createAsyncThunk(
     }
   }
 );
+
+export const refreshTokens = createAsyncThunk(
+  "auth/refresh-tokens",
+  async (_, { rejectWithValue }) => {
+    try {
+      await axios.get("api/auth/refresh-tokens");
+      token.set(data.token);
+      return data;
+    } catch (error) {
+      return rejectWithValue(toast.error(error.response.data.message));
+    }
+  }
+);
