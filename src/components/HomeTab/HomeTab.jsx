@@ -1,31 +1,26 @@
-import { useAuth, useWallet } from "../../hooks";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { getTransactions } from "../../redux/wallet/wallet-operations";
-import Table from "../Table/Table";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  getTransactions,
+  deleteTransaction,
+} from "../../redux/transactions/transactions-operations";
+import { selectIsLoading } from "../../redux/transactions/transactions-selectors";
 
 const HomeTab = () => {
-  const { user } = useAuth();
-  const { transactions, changeTransactions } = useWallet();
+  let data = useSelector((state) => state.transactions.items.userTransactions);
   const dispatch = useDispatch();
-
-  getHeadings = () => {
-    return Object.keys();
+  const isLoading = useSelector(selectIsLoading);
+  const [selectedTransactionId, setSelectedTransactionId] = useState(null);
+  if (!data) data = [];
+  const handleDelete = (transactionId) => {
+    dispatch(deleteTransaction(transactionId));
   };
 
   useEffect(() => {
-    dispatch(getTransactions({ walletId: user.wallets[0].id }));
-  }, [changeTransactions, dispatch, user.wallets]);
+    dispatch(getTransactions());
+  }, [dispatch]);
 
-  return (
-    <>
-      <Table
-        theadData={getHeadings()}
-        tbodyData={transactions}
-        className={""}
-      />
-    </>
-  );
+  return <></>;
 };
 
 export default HomeTab;
