@@ -4,11 +4,19 @@ import {
   addTransaction,
   getTransactions,
   editTransaction,
+  getTransactionsCategories,
+  getTransactionsSummary,
 } from "./transactions-operations";
 
 const transactionsSlice = createSlice({
   name: "transactions",
-  initialState: { transactions: [], balance: 0, isLoading: false, error: null },
+  initialState: {
+    transactions: [],
+    balance: 0,
+    isLoading: false,
+    error: null,
+    summary: [],
+  },
   reducers: {},
   extraReducers: (builder) =>
     builder
@@ -70,6 +78,32 @@ const transactionsSlice = createSlice({
         });
       })
       .addCase(editTransaction.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      })
+      .addCase(getTransactionsSummary.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(getTransactionsSummary.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = null;
+        state.summary = payload;
+      })
+      .addCase(editTransaction.rejected, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = payload;
+      })
+      .addCase(getTransactionsCategories.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(getTransactionsCategories.fulfilled, (state, { payload }) => {
+        state.isLoading = false;
+        state.error = null;
+        state.categories = payload;
+      })
+      .addCase(getTransactionsCategories.rejected, (state, { payload }) => {
         state.isLoading = false;
         state.error = payload;
       }),
