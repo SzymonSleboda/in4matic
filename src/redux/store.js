@@ -1,5 +1,5 @@
 import axios from "axios";
-import { configureStore } from "@reduxjs/toolkit";
+import { combineReducers, configureStore } from "@reduxjs/toolkit";
 import {
   persistStore,
   persistReducer,
@@ -13,18 +13,29 @@ import {
 import storage from "redux-persist/lib/storage";
 
 import authReducer from "./auth/auth-slice";
+import { globalReducer } from "./global/global-slice";
+import financeReducer from "./finance/finance-slicee";
+import categoriesReducer from "./categories/categories-slice";
+import transactionsReducer from "./transactions/transactions-slice";
+import userReducer from "./user/user-slice";
 
 const authPersistConfig = {
   key: "auth",
   storage,
   whitelist: ["token"],
 };
+const rootReducer = combineReducers({
+  auth: persistReducer(authPersistConfig, authReducer),
+  global: globalReducer,
+  finance: financeReducer,
+  categories: categoriesReducer,
+  transactions: transactionsReducer,
+  user: userReducer,
+});
 
 export const store = configureStore({
-  reducer: {
-    auth: persistReducer(authPersistConfig, authReducer),
-  },
-  middleware: getDefaultMiddleware =>
+  reducer: rootReducer,
+  middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware({
       serializableCheck: {
         ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
@@ -32,9 +43,7 @@ export const store = configureStore({
     }),
 });
 
-export const persistor = persistStore(store);
-
-persistor.subscribe(() => {
+export const persistor = persistStore(store, null, () => {
   axios.defaults.headers.common.Authorization = `Bearer ${
     store.getState().auth.token
   }`;
