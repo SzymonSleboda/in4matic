@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { getStatistics } from "./finance-operations";
+import { getStatistics } from "./finance-operation";
 
 const initialState = {
   statistics: null,

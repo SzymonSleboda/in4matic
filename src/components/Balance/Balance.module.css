@@ -5,14 +5,13 @@
   height: 80px;
   padding: 0;
   width: 280px;
-  margin-top: 12px;
-  margin-bottom: 32px;
   background: var(--light-background-color);
   border-radius: 30px;
   
 }
 .balance__title {
   text-align: start;
+  font-family: "Circe";
   font-weight: 400;
   font-size: 12px;
   line-height: 1.5;
@@ -22,7 +21,7 @@
   color: #a6a6a6;
 }
 .balance__text {
-  font-family: 'Poppins';
+  font-family: "Poppins";
   font-weight: 700;
   font-size: 30px;
   line-height: 1.5;
@@ -34,6 +33,7 @@
   height: 36px;
 }
 .balance__currency {
+    font-family: "Circe";
     font-weight: 400;
     margin-right: 10px;
 }
@@ -43,8 +43,6 @@
 @media screen and (min-width: 768px) {
 .balance {
     width: 336px;
-    margin-top: 28px;
-    margin-bottom: 20px;
 }
 .balance__title {
     padding: 8px 0 11px 40px;
@@ -59,6 +57,5 @@
 @media screen and (min-width: 1280px) {
 .balance {
     width: 395px;
-    margin-bottom: 32px;
 }
 }
