@@ -5,7 +5,7 @@ import StatisticsContainer from "../../components/StatisticsContainer/Statistics
 
 export default function Statistics() {
   return (
-    <>
+    <div className={css.statisticsBox}>
       <Media
         query="(max-width: 767px)"
         render={() => (
@@ -58,6 +58,6 @@ export default function Statistics() {
           )}
         />
       </>
-    </>
+    </div>
   );
 }

@@ -1,7 +1,8 @@
-
 //import Statistics from "./pages/Statistics";
-// import StatisticsPage from "./pages/StatisticsPage/StatisticsPage";
+import StatisticsPage from "./pages/StatisticsPage/StatisticsPage";
 import DashboardPage from "./pages/DashboardPage/DashboardPage";
+
+
 
 export const App = () => {
   return (
@@ -10,7 +11,7 @@ export const App = () => {
       <div>
         <DashboardPage />
         {/* <Statistics /> */}
-        {/* <StatisticsPage />*/}
+        <StatisticsPage />
       </div>
     </div>
   );

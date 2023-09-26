@@ -55,7 +55,33 @@ export const deleteTransaction = createAsyncThunk(
       toast.success("Your transaction is deleted!");
       return _id;
     } catch (error) {
+      return rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getTransactionsCategories = createAsyncThunk(
+  "transactions/categories",
+  async (_, { rejectWithValue }) => {
+    try {
+      const response = await axios.get("/api/transactions/categories");
+      return response.data;
+    } catch (error) {
       return rejectWithValue(error);
+    }
+  }
+);
+
+export const getTransactionsSummary = createAsyncThunk(
+  "transactions/getTransactionsSummary",
+  async ({ year, month }, { rejectWithValue }) => {
+    try {
+      const response = await axios.get(
+        `/api/transactions-summary?year=${year}&month=${month}`
+      );
+      return response.data.data.response;
+    } catch (error) {
+      return rejectWithValue(error.message);
     }
   }
 );

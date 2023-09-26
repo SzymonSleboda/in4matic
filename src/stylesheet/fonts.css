@@ -1,23 +1,24 @@
 @font-face {
-  font-family: '  ';
-  src: local('poppins-regular'), url('../assets/fonts/poppins-regular.ttf') format('truetype');
+  font-family: "Poppins";
+  src: local("Poppins-Regular"),
+    url("../assets/fonts/fonts/Poppins-Regular.otf") format("truetype");
   font-weight: 400;
 }
-
 @font-face {
-  font-family: 'Poppins';
-  src: local('poppins-bold'), url('../assets/fonts/poppins-bold.ttf') format('truetype');
+  font-family: "Poppins";
+  src: local("Poppins-Bold"),
+    url("../assets/fonts/fonts/Poppins-Bold.otf") format("truetype");
   font-weight: 700;
 }
-
 @font-face {
-  font-family: 'Circe';
-  src: local('circe-regular'), url('../assets/fonts/circe-regular.otf') format('opentype');
+  font-family: "Circe";
+  src: local("Circe-Regular"),
+    url("../assets/fonts/fonts/Circe-Regular.otf") format("opentype");
   font-weight: 400;
 }
-
 @font-face {
-  font-family: 'Circe';
-  src: local('circe-bold'), url('../assets/fonts/circe-bold.otf') format('opentype');
+  font-family: "Circe";
+  src: local("Circe-Bold"),
+    url("../assets/fonts/fonts/Circe-Bold.otf") format("opentype");
   font-weight: 700;
 }
