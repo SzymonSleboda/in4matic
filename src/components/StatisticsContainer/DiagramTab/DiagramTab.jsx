@@ -37,8 +37,9 @@ export default function DiagramTab() {
         <thead>
           <tr className={css.trBox}>
             <th scope="col" className={`${css.thBox} ${css.thCategory}`}>
-              Category
+              <p className={css.catText}>Category</p>
             </th>
+
             <th scope="col" className={css.thBox}></th>
             <th scope="col" className={`${css.thBox} ${css.thSum}`}>
               Sum
@@ -49,7 +50,7 @@ export default function DiagramTab() {
         <tbody>
           {statisticsList.map((item, index) => (
             <tr>
-              <td key={index} className={css.tdBox}>
+              <td key={index} className={`${css.tdBox} ${css.textValue}`}>
                 <div
                   className={css.colorBox}
                   style={{ backgroundColor: getNotFoundColor(item.name) }}
@@ -59,20 +60,29 @@ export default function DiagramTab() {
               <td className={`${css.tdBox} ${css.textValue}`}>{item.value}</td>
             </tr>
           ))}
+
+          <tr className={css.trBox}>
+            <td className={css.summaryBox}>
+              <p className={css.summaryText}>Expenses:</p>
+            </td>
+            <td className={css.summaryBox}>
+              {/* <div className={css.summaryWrapp}> */}
+              <p className={css.valueExpenses}>{expenses}</p>
+              {/* </div> */}
+            </td>
+          </tr>
+
+          <tr className={css.trBox}>
+            <td className={css.summaryBox}>
+              <p className={css.summaryText}>Income:</p>
+            </td>
+            <td className={css.summaryBox}>
+              {/* <div className={css.summaryWrapp}> */}
+              <p className={css.valueIncome}>{income}</p>
+              {/* </div> */}
+            </td>
+          </tr>
         </tbody>
-      </table>
-
-      <table className={css.summaryBox}>
-        <tr>
-          <th scope="row">Expenses:</th>
-
-          <td className={css.tdExpenses}>{expenses}</td>
-        </tr>
-
-        <tr>
-          <th scope="row">Income:</th>
-          <td className={css.tdIncome}>{income}</td>
-        </tr>
       </table>
     </div>
   );
