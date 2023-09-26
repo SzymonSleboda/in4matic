@@ -4,7 +4,7 @@ import Datetime from "react-datetime";
 import "react-datetime/css/react-datetime.css";
 // import { useDispatch } from "react-redux";
 import css from "./Calendar.module.css";
-// import arrow from "./images/Vector.png";
+
 // import { fetchTransactionsSummary } from "../../../redux/transactions/transactionThunk";
 
 const Calendar = ({ setMonthAmount, setYearAmount }) => {
@@ -73,11 +73,20 @@ const Calendar = ({ setMonthAmount, setYearAmount }) => {
   };
 
   return (
-    <div onClick={toggleCalendar} className={css.wrappCalendar}>
+    <div onClick={toggleCalendar} className={css.calendarBox}>
       <div>
-        <div onClick={toggleMonth} className={css.wrapperMonth}>
+        <div onClick={toggleMonth} className={css.monthBox}>
           <p className={css.calendarText}>{monthTime ? monthTime : "Month"}</p>
           {/* <img src={arrow} alt=">" /> */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="11"
+            viewBox="0 0 20 11"
+            fill="none"
+          >
+            <path d="M1 1L10 10L19 1" stroke="black" />
+          </svg>
         </div>
         {month && (
           <Datetime
@@ -94,12 +103,18 @@ const Calendar = ({ setMonthAmount, setYearAmount }) => {
       </div>
 
       <div>
-        <div
-          onClick={toggleYear}
-          className={`${css.wrapperMonth} ${css.wrapperYear}`}
-        >
+        <div onClick={toggleYear} className={`${css.monthBox} ${css.yearBox}`}>
           <p className={css.calendarText}>{yearTime ? yearTime : "Year"}</p>
           {/* <img src={arrow} alt=">" /> */}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="11"
+            viewBox="0 0 20 11"
+            fill="none"
+          >
+            <path d="M1 1L10 10L19 1" stroke="black" />
+          </svg>
         </div>
         {year && (
           <Datetime
