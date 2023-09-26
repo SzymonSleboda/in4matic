@@ -14,7 +14,7 @@ import storage from "redux-persist/lib/storage";
 
 import authReducer from "./auth/auth-slice";
 import { globalReducer } from "./global/global-slice";
-import financeReducer from "./finance/finance-slicee";
+import financeReducer from "./finance/finance-slice";
 import categoriesReducer from "./categories/categories-slice";
 import transactionsReducer from "./transactions/transactions-slice";
 import userReducer from "./user/user-slice";
