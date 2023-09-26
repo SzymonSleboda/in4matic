@@ -1,3 +1,6 @@
+@import "../../stylesheet/fonts.css";
+@import "../../stylesheet/vars.css";
+
 .containerChart {
   margin-right: 62px;
 }
@@ -17,12 +20,12 @@ h1 {
 }
 
 @media screen and (min-width: 768px) {
-    .container {
-      display: flex;
-      justify-content: space-between;
-    }
-    .containerDiagramTab {
-      width: 395px;
-      margin-right: 15px;
-    }
+  .container {
+    display: flex;
+    justify-content: space-between;
   }
+  .containerDiagramTab {
+    width: 395px;
+    margin-right: 15px;
+  }
+}
