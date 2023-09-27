@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 //import { useDispatch, useSelector } from 'react-redux';
 
 import axios from "axios";
-import { DataDoughnut } from "./Chart/Chart";
+import DataDoughnut  from "./Chart/Chart";
 import Calendar from "./Calendar/Calendar";
 import DiagramTab from "./DiagramTab/DiagramTab";
 
@@ -21,9 +21,10 @@ const StatisticsContainer = () => {
         if (!year) {
           return;
         }
-        const response = await axios.get(
-        //   `/api/transactions-summary?year=${year}&month=${month}`
-        );
+        const response = await axios
+          .get
+          //   `/api/transactions-summary?year=${year}&month=${month}`
+          ();
         setData(response);
       } catch (error) {
         console.error("Error:", error);
@@ -33,14 +34,16 @@ const StatisticsContainer = () => {
   }, [year, month]);
 
   return (
-    <div className={css.container}>
-      <div className={css.containerChart}>
-        <h1>Statistics</h1>
-        <DataDoughnut statistic={data} />
-      </div>
-      <div className={css.containerDiagramTab}>
-        <Calendar setMonthAmount={setMonth} setYearAmount={setYear} />
-        <DiagramTab statistic={data} />
+    <div className={css.containerBackground}>
+      <div className={css.container}>
+        <div className={css.containerChart}>
+          <h1 className={css.textTitle}>Statistics</h1>
+          <DataDoughnut statistic={data} />
+        </div>
+        <div className={css.containerDiagramTab}>
+          <Calendar setMonthAmount={setMonth} setYearAmount={setYear} />
+          <DiagramTab statistic={data} />
+        </div>
       </div>
     </div>
   );

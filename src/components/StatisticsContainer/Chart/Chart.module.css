@@ -2,6 +2,45 @@
 @import "../../../stylesheet/vars.css"; */
 
 .doughnut {
-  width: 200px;
-  height: 200px;
+  position: relative;
+  margin: 0 auto;
+  margin-right: 20px;
+  width: 280px;
+  height: 280px;
+  margin-bottom: 32px;
+}
+.doughnutSumExpenses {
+  position: absolute;
+  left: 140px;
+  transform: translateX(-50%);
+  top: 135px;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 26.53px;
+}
+.canvas {
+  margin-right: 20px;
+}
+@media screen and (min-width: 320px) {
+}
+
+@media screen and (min-width: 768px) {
+  .doughnut {
+    width: 336px;
+    height: 336px;
+  }
+  .doughnutSumExpenses {
+    top: 160px;
+    left: 168px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  .doughnut {
+    width: 288px;
+    height: 288px;
+  }
+  .doughnutSumExpenses {
+    top: 132px;
+    left: 144px;
+  }
 }

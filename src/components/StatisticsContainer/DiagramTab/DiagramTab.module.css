@@ -25,7 +25,6 @@ p {
     color: var(--dark-font-color);
     width: 280px;
     height: 58px;
-    flex-shrink: 0;
     font-family: "Circe";
   }
   .thCategory {
@@ -39,8 +38,13 @@ p {
     height: 24px;
     border-radius: 2px;
     margin-left: 20px;
+
     background-color: transparent;
   }
+  .m {
+    margin-left: 40px;
+  }
+
   .tdBox {
     border-bottom: 1px solid var(--gray-background-color);
     box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
@@ -52,35 +56,39 @@ p {
     font-weight: 400;
     line-height: 112.5%;
   }
+
   .textValue {
     text-align: right;
     padding-right: 40px;
   }
   .summaryBox {
+    font-weight: 400;
+    font-size: 15px;
+    padding: 14px 0 0 0;
+  }
+  .summaryText {
+    margin-left: 20px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 1.5;
     color: var(--dark-font-color);
     font-family: "Circe";
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: normal;
-    padding-left: 40px;
-    padding-top: 16px;
   }
-  .expensesText {
-    display: flex;
-    justify-content: flex-end;
-  }
-  .tdExpenses {
+  .valueExpenses {
     font-weight: 700;
     font-size: 16px;
     line-height: 1.5;
     color: var(--accent-brand-color);
+    font-family: "Circe";
   }
-  .tdIncome {
+  .valueIncome {
     font-weight: 700;
     font-size: 16px;
     line-height: 1.5;
     color: var(--secondary-brand-color);
+    margin-right: 20px;
+
+    font-family: "Circe";
   }
 }
 
