@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { getStatistics } from "./finance-operation";
 
 const initialState = {
+  balance: 0,
   statistics: null,
   isLoading: false,
   error: null,

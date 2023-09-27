@@ -37,7 +37,7 @@ export default function DiagramTab() {
         <thead>
           <tr className={css.trBox}>
             <th scope="col" className={`${css.thBox} ${css.thCategory}`}>
-              <p className={css.catText}>Category</p>
+              <p>Category</p>
             </th>
 
             <th scope="col" className={css.thBox}></th>
@@ -54,9 +54,11 @@ export default function DiagramTab() {
                 <div
                   className={css.colorBox}
                   style={{ backgroundColor: getNotFoundColor(item.name) }}
-                ></div>
+                >
+                  <div className={css.m}>{item.title}</div>
+                </div>
               </td>
-              <td className={css.tdBox}>{item.title}</td>
+              <td className={css.tdBox}></td>
               <td className={`${css.tdBox} ${css.textValue}`}>{item.value}</td>
             </tr>
           ))}
@@ -65,10 +67,9 @@ export default function DiagramTab() {
             <td className={css.summaryBox}>
               <p className={css.summaryText}>Expenses:</p>
             </td>
+            <td></td>
             <td className={css.summaryBox}>
-              {/* <div className={css.summaryWrapp}> */}
               <p className={css.valueExpenses}>{expenses}</p>
-              {/* </div> */}
             </td>
           </tr>
 
@@ -76,10 +77,9 @@ export default function DiagramTab() {
             <td className={css.summaryBox}>
               <p className={css.summaryText}>Income:</p>
             </td>
+            <td></td>
             <td className={css.summaryBox}>
-              {/* <div className={css.summaryWrapp}> */}
               <p className={css.valueIncome}>{income}</p>
-              {/* </div> */}
             </td>
           </tr>
         </tbody>

@@ -19,12 +19,15 @@ h1 {
 }
 
 @media screen and (min-width: 320px) {
-  .containerChart {
-    margin-left: 30px;
-  }
   .containerBackground {
     background: var(--accent-background-color);
     width: 100%;
+  }
+  .containerChart {
+    margin-right: auto;
+  }
+  .textTitle {
+    margin-left: 20px;
   }
 }
 

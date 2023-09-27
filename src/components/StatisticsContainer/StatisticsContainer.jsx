@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 //import { useDispatch, useSelector } from 'react-redux';
 
 import axios from "axios";
-import { DataDoughnut } from "./Chart/Chart";
+import DataDoughnut  from "./Chart/Chart";
 import Calendar from "./Calendar/Calendar";
 import DiagramTab from "./DiagramTab/DiagramTab";
 
@@ -37,7 +37,7 @@ const StatisticsContainer = () => {
     <div className={css.containerBackground}>
       <div className={css.container}>
         <div className={css.containerChart}>
-          <h1>Statistics</h1>
+          <h1 className={css.textTitle}>Statistics</h1>
           <DataDoughnut statistic={data} />
         </div>
         <div className={css.containerDiagramTab}>
