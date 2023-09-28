@@ -1,0 +1,163 @@
+@import "../../stylesheet/fonts.css";
+@import "../../stylesheet/vars.css";
+
+.noData {
+  font-family: "Poppins";
+  text-align: center;
+  font-size: 18px;
+  margin-left: 20px;
+  margin-top: 10px;
+  color: var(--accent-brand-color);
+}
+.group306 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 100%;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.tableHeaderRow {
+  background-color: var(--light-background-color);
+  border-radius: 30px;
+}
+
+.tableHeaderCell {
+  padding: 10px 20px;
+  text-align: left;
+}
+
+.tableHeaderCell:first-child {
+  padding-left: 40px;
+}
+
+.tableCell {
+  padding: 10px 20px;
+  text-align: left;
+}
+
+.tableRow:nth-child(even) {
+  background-color: #f6f6f6;
+}
+
+.btn {
+  background-color: var(--secondary-brand-color);
+  border-radius: 30px;
+  display: flex;
+  justify-content: center;
+  padding: 15px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.btn:hover {
+  background-color: var(--element-shadow);
+}
+
+.circeBoldBlack18px,
+.circeBoldBlack18pxDelete {
+  color: var(--dark-font-color);
+  font-size: 18px;
+  font-weight: 700;
+  font-style: normal;
+  flex-grow: 1;
+}
+
+.circeBoldBlack18pxDelete {
+  color: var(--light-font-color);
+}
+
+.circeRegularNormalBlack16px {
+  color: var(--dark-font-color);
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.circeBoldGreen16px {
+  color: var(--secondary-brand-color);
+  font-size: 16px;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.circeBoldRed16px {
+  color: var(--accent-brand-color);
+  font-size: 16px;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.circeRegularNormalWhite14px {
+  color: var(--light-font-color);
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.circeRegularNormalWhite16px {
+  color: var(--light-font-color);
+  font-size: 16px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.editionsGroup {
+  display: flex;
+  align-items: center;
+}
+
+.edit {
+  cursor: pointer;
+}
+
+@media screen and (max-width: 1279px) {
+  .group306 {
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .center {
+    text-align: none;
+  }
+
+  .tableHeaderCell,
+  .tableCell {
+    padding: 10px 12px;
+  }
+
+  .btn:hover {
+    background-color: var(--accent-brand-color);
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .group306 {
+    margin-left: 0;
+    max-width: 100%;
+  }
+
+  .tableHeaderRow,
+  .tableRow {
+    flex-direction: column;
+    border-radius: 30px;
+    margin-bottom: 10px;
+  }
+
+  .tableHeaderCell,
+  .tableCell {
+    padding: 10px 12px;
+  }
+
+  .tableCell:last-child {
+    margin-bottom: 10px;
+  }
+
+  .btn {
+    margin: 0;
+  }
+}
