@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import { getTransactions } from "../../redux/transactions/transactions-operations";
+import css from "./HomeTab.module.css";
 
 const HomeTab = () => {
   useEffect(() => {
@@ -7,7 +8,7 @@ const HomeTab = () => {
   }, [dispatch]);
 
   return (
-    <div>
+    <div className={css.group306}>
       <Table />
     </div>
   );
