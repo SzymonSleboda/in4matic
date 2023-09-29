@@ -7,7 +7,7 @@ export const getCurrentUser = createAsyncThunk(
   "user/getCurrentUser",
   async ({ token }, { rejectWithValue }) => {
     try {
-      const { data } = await axios.get("/api/users/current/", {
+      const { data } = await axios.get(`/users/profile`, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
