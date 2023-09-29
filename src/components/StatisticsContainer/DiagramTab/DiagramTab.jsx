@@ -1,9 +1,10 @@
 import css from "./DiagramTab.module.css";
 
-import { useDispatch, useSelector } from "react-redux";
+import { useSelector } from "react-redux";
+
 // import { useState } from "react";
-import { getStatistics } from "../../../redux/finance/finance-operation";
-import { useEffect } from "react";
+// import { getStatistics } from "../../../redux/finance/finance-operation";
+// import { useEffect } from "react";
 
 // const statisticsList = [
 //   { title: "Income", value: 8700, color: "#24CCA7" },
@@ -30,30 +31,27 @@ import { useEffect } from "react";
 // const expenses = 22549.24;
 // const income = 27350.01;
 
-const getNotFoundColor = (title) => {
-  const item = statisticsList.find((item) => item.title === title);
-  return item ? item.color : "black";
-};
-
 export default function DiagramTab() {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const income = useSelector(
     (state) => state.transactions.summary.incomeSummary
   );
 
-  const expenses = useSelector(
-    (state) => state.transactions.summary
-  );
+  const expenses = useSelector((state) => state.transactions.summary);
   console.log(expenses);
 
-  let transactionsSummary = useSelector(
-    (state) => state.transactions.summary.categoriesSummary
-  );
+  let statisticsList = useSelector((state) => state.transactions.summary);
 
   // if (!transactionsSummary) transactionsSummary = [];
   // useEffect(() => {
   //   dispatch(getStatistics({ year: 2023, month: "9" }));
   // }, [dispatch]);
+
+  const getNotFoundColor = (title) => {
+    const item = statisticsList.find((item) => item.title === title);
+    return item ? item.color : "black";
+  };
+
   return (
     <div>
       <table className={css.statisticsList}>

@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 //import { useDispatch, useSelector } from 'react-redux';
 
 import axios from "axios";
-import DataDoughnut  from "./Chart/Chart";
+import DataDoughnut from "./Chart/Chart";
 import Calendar from "./Calendar/Calendar";
-import DiagramTab from "./DiagramTab/DiagramTab";
+// import DiagramTab from "./DiagramTab/DiagramTab";
 
 import css from "./StatisticsContainer.module.css";
 
@@ -15,16 +15,16 @@ const StatisticsContainer = () => {
   const [month, setMonth] = useState(1); //Daty z zrobionego datepickera, koniecznie numbery
   const [year, setYear] = useState(2000);
 
+  // -> to powoduje jeden z errorów 404 useEffect!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   useEffect(() => {
     const fetchData = async () => {
       try {
         if (!year) {
           return;
         }
-        const response = await axios
-          .get
-          //   `/api/transactions-summary?year=${year}&month=${month}`
-          ();
+        const response = await axios.get(
+          `https://in4matic-4c2abd694526.herokuapp.com/api/transactions/categories/{month}/{year}`
+        );
         setData(response);
       } catch (error) {
         console.error("Error:", error);
@@ -42,7 +42,7 @@ const StatisticsContainer = () => {
         </div>
         <div className={css.containerDiagramTab}>
           <Calendar setMonthAmount={setMonth} setYearAmount={setYear} />
-          <DiagramTab statistic={data} />
+          {/* <DiagramTab statistic={data} /> */}
         </div>
       </div>
     </div>
