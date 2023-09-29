@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { createAsyncThunk } from "@reduxjs/toolkit";
 
-axios.defaults.baseURL = "https://wallet.goit.ua/";
+axios.defaults.baseURL = "https://in4matic-4c2abd694526.herokuapp.com/";
 
 const token = {
   set(token) {
@@ -18,7 +18,7 @@ export const register = createAsyncThunk(
   "auth/register",
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post("/api/users", credentials);
+      const { data } = await axios.post(`/users/register`, credentials);
       toast.success("Registration is successful!");
       token.set(data.token);
       return data;
@@ -32,7 +32,7 @@ export const login = createAsyncThunk(
   "user/login",
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post("/api/auth/sign-in", credentials);
+      const { data } = await axios.post(`/users/login`, credentials);
       toast.success("Login is successful!");
       token.set(data.token);
       return data;
@@ -46,7 +46,7 @@ export const logout = createAsyncThunk(
   "auth/logout",
   async (_, { rejectWithValue }) => {
     try {
-      await axios.get("/api/users/logout");
+      await axios.get(`/users/logout`);
       token.unset();
       toast.success("You are logged out");
     } catch (error) {
@@ -66,7 +66,7 @@ export const fetchCurrentUser = createAsyncThunk(
     }
     token.set(tokenLS);
     try {
-      const { data } = await axios.get("/api/users/current");
+      const { data } = await axios.get(`/users/refresh`);
       return data;
     } catch (error) {
       return rejectWithValue(error);
