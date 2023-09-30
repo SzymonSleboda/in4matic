@@ -2,7 +2,8 @@
 @import "../../stylesheet/vars.css";
 
 .containerBackground {
-  background: var(--accent-background-color);
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(25px);
   width: 100%;
 }
 
@@ -20,7 +21,9 @@ h1 {
 
 @media screen and (min-width: 320px) {
   .containerBackground {
-    background: var(--accent-background-color);
+    /* background: var(--accent-background-color); */
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(25px);
     width: 100%;
   }
   .containerChart {
@@ -41,7 +44,9 @@ h1 {
     margin-right: 15px;
   }
   .containerBackground {
-    background: var(--accent-background-color);
+    /* background: var(--accent-background-color); */
+    background: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(25px);
     width: 100%;
   }
 }

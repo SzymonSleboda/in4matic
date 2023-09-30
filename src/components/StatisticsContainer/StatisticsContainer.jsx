@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import DataDoughnut from "./Chart/Chart";
 import Calendar from "./Calendar/Calendar";
-// import DiagramTab from "./DiagramTab/DiagramTab";
+import DiagramTab from "./DiagramTab/DiagramTab";
 
 import css from "./StatisticsContainer.module.css";
 
@@ -42,7 +42,7 @@ const StatisticsContainer = () => {
         </div>
         <div className={css.containerDiagramTab}>
           <Calendar setMonthAmount={setMonth} setYearAmount={setYear} />
-          {/* <DiagramTab statistic={data} /> */}
+          <DiagramTab statistic={data} />
         </div>
       </div>
     </div>
