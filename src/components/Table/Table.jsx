@@ -6,9 +6,11 @@ import { deleteTransaction } from "../../redux/transactions/transactions-operati
 import { Spinner } from "../Spinner/Spinner";
 import css from "./Table.module.css";
 import editIcon from "./EditIcon.png";
+import { useState, useEffect } from "react";
+import { getTransactions } from "../../redux/transactions/transactions-operations";
 
 const Table = () => {
-  let data = useSelector((state) => state.transactions.items.transactions);
+  let data = useSelector((state) => state.transactions.items);
   if (!data) data = [];
   const isLoading = useSelector(selectIsLoading);
   const [selectedTransactionId, setSelectedTransactionId] = useState(null);
@@ -173,20 +175,20 @@ const Table = () => {
               <th className={css.tableHeaderCell}>
                 <span className={css.circeBoldBlack18px}>Date</span>
               </th>
-              <th className={styles.tableHeaderCell}>
+              <th className={css.tableHeaderCell}>
                 <span className={css.circeBoldBlack18px}>Type</span>
               </th>
-              <th className={styles.tableHeaderCell}>
+              <th className={css.tableHeaderCell}>
                 <span className={css.circeBoldBlack18px}>Category</span>
               </th>
-              <th className={styles.tableHeaderCell}>
+              <th className={css.tableHeaderCell}>
                 <span className={css.circeBoldBlack18px}>Comment</span>
               </th>
-              <th className={styles.tableHeaderCell}>
+              <th className={css.tableHeaderCell}>
                 <span className={css.circeBoldBlack18px}>Sum</span>
               </th>
-              <th className={styles.tableHeaderCell}>
-                <span className={styles.circeBoldBlack18pxDelete}>Delete</span>
+              <th className={css.tableHeaderCell}>
+                <span className={css.circeBoldBlack18pxDelete}>Delete</span>
               </th>
             </tr>
           </thead>
@@ -234,8 +236,8 @@ const Table = () => {
                     <span
                       className={
                         item.type === "INCOME"
-                          ? `${styles.circeBoldGreen16px}`
-                          : `${styles.circeBoldRed16px}`
+                          ? `${css.circeBoldGreen16px}`
+                          : `${css.circeBoldRed16px}`
                       }
                     >
                       {item.amount
@@ -267,7 +269,7 @@ const Table = () => {
                         onClick={() => handleDelete(item._id)}
                       >
                         <div
-                          className={`${styles.delete} ${styles.circeRegularNormalWhite14px}`}
+                          className={`${css.delete} ${css.circeRegularNormalWhite14px}`}
                         >
                           <span className={css.circeRegularNormalWhite14px}>
                             Delete
