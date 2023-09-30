@@ -15,10 +15,10 @@ const token = {
 };
 
 export const register = createAsyncThunk(
-  "auth/register",
+  "users/register",
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post(`/users/register`, credentials);
+      const { data } = await axios.post("/users/register", credentials);
       toast.success("Registration is successful!");
       token.set(data.token);
       return data;
@@ -29,24 +29,24 @@ export const register = createAsyncThunk(
 );
 
 export const login = createAsyncThunk(
-  "user/login",
+  "users/login",
   async (credentials, { rejectWithValue }) => {
     try {
-      const { data } = await axios.post(`/users/login`, credentials);
-      toast.success("Login is successful!");
+      const { data } = await axios.post("/users/login", credentials);
       token.set(data.token);
+      toast.success(`Welcome, ${data.user.name}!`);
       return data;
     } catch (error) {
-      return rejectWithValue(toast.error(error.response.data.message));
+      return rejectWithValue(toast.error("Incorrect password or email"));
     }
   }
 );
 
 export const logout = createAsyncThunk(
-  "auth/logout",
+  "users/logout",
   async (_, { rejectWithValue }) => {
     try {
-      await axios.get(`/users/logout`);
+      await axios.get("/users/logout");
       token.unset();
       toast.success("You are logged out");
     } catch (error) {
@@ -58,7 +58,7 @@ export const logout = createAsyncThunk(
 );
 
 export const fetchCurrentUser = createAsyncThunk(
-  "auth/refresh",
+  "users/refresh",
   async (_, { rejectWithValue, getState }) => {
     const tokenLS = getState().auth.token;
     if (!tokenLS) {
@@ -66,7 +66,7 @@ export const fetchCurrentUser = createAsyncThunk(
     }
     token.set(tokenLS);
     try {
-      const { data } = await axios.get(`/users/refresh`);
+      const { data } = await axios.get("/users/current");
       return data;
     } catch (error) {
       return rejectWithValue(error);

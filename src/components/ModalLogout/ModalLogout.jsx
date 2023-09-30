@@ -2,7 +2,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
 
 import { toggleModalOpen, setModalType } from "../../redux/global/global-slice";
-import { logout } from "redux/auth/auth-operations";
+import { logout } from "../../redux/auth/auth-operations";
 
 import css from "./ModalLogout.module.css";
 

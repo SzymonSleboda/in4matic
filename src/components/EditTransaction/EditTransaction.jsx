@@ -15,7 +15,7 @@ import { selectToken } from "../../redux/auth/auth-selectors";
 import { selectId } from "../../redux/auth/auth-selectors";
 import { getCurrentUser } from "../../redux/user/user-operations";
 
-import { DateComponent } from "../AddTransaction/DateComponent/DateComponent";
+import DateComponent from "../AddTransaction/DateComponent/DateComponent";
 import { SelectComponent } from "../AddTransaction/SelectComponent/SelectComponent";
 
 import css from "./EditTransaction.module.css";

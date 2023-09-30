@@ -1,5 +1,6 @@
+import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { useEffect, useState } from "react";
+
 import { Formik, Field } from "formik";
 import { useMediaQuery } from "react-responsive";
 import { date, object, string } from "yup";
@@ -14,9 +15,8 @@ import { selectToken } from "../../redux/auth/auth-selectors";
 import { selectId } from "../../redux/auth/auth-selectors";
 import { getCurrentUser } from "../../redux/user/user-operations";
 
-import { DateComponent } from "./DateComponent/DateComponent";
-import { SelectComponent } from "./SelectComponent/SelectComponent";
-
+import DateComponent from "./DateComponent/DateComponent";
+import SelectComponent from "./SelectComponent/SelectComponent.jsx";
 import css from "./AddTransaction.module.css";
 
 function capitalizeFirstLetter(string) {
@@ -138,7 +138,7 @@ export const AddTransaction = () => {
 
   let validationSchema = object({
     amount: string()
-      .required("amount is required")
+      .required("Amount is required")
       .max(16, "Must be 16 characters maximum"),
     date: date()
       .required("Required")
@@ -200,13 +200,14 @@ export const AddTransaction = () => {
                   <div className={css.categoryWrapper}>
                     <label>
                       <Field
-                        as="select"
+                        className={css.select}
                         name="category"
                         placeholder="Select a category"
                         component={SelectComponent}
-                        options={categories.map((option) => {
-                          return { value: option.id, label: option.category };
-                        })}
+                        options={categories.map((option) => ({
+                          value: option.id,
+                          label: option.category,
+                        }))}
                         onChange={(option) => {
                           handleSelectChange(option.value);
                         }}
@@ -241,7 +242,7 @@ export const AddTransaction = () => {
                   </div>
                 </div>
                 <Field
-                  as="textarea"
+                  className={css.textarea}
                   rows={isMobile ? "5" : "1"}
                   type="text"
                   placeholder="Comment"
