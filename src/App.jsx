@@ -11,8 +11,11 @@ import { useSelector } from "react-redux";
 // import { LoaderGlobal } from './components/Loader/LoaderGlobal';
 import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { RegistrationPage } from "./pages/RegistrationPage/RegistrationPage";
+
 const DashboardPage = lazy(() => import("./pages/DashboardPage/DashboardPage"));
 const Statistics = lazy(() => import("./pages/StatisticsPage/StatisticsPage"));
+const CurrencyPage = lazy(() => import("./pages/CurrencyPage/CurrencyPage"));
+
 export const App = () => {
   return (
     <>
@@ -27,6 +30,7 @@ export const App = () => {
           <Route path="/register" element={<RegistrationPage />} />
           <Route path="/home" element={<DashboardPage />} />
           <Route path="/diagram" element={<Statistics />} />
+          <Route path="/currency" element={<CurrencyPage />} />
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>
         <ToastContainer
