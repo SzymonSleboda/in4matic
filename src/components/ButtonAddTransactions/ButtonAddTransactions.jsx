@@ -1,4 +1,4 @@
-import AddTransaction from "../AddTransaction/AddTransaction";
+import { AddTransaction} from "../AddTransaction/AddTransaction";
 import { selectIsTransactionModalOpen } from "../../redux/global/global-selectors";
 import { toggleTransactionModalOpen } from "../../redux/global/global-slice";
 import { useDispatch, useSelector } from "react-redux";
