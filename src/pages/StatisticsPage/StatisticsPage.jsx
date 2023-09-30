@@ -1,63 +1,74 @@
 import Media from "react-media";
 import css from "./StatisticsPage.module.css";
-import { Spinner } from "../../components/Spinner/Spinner";
+// import { Spinner } from "../../components/Spinner/Spinner";
+import Header from "../../components/Header/Header";
+import { Navigation } from "../../components/Navigation/Navigation";
+import { Balance } from "../../components/Balance/Balance";
 import StatisticsContainer from "../../components/StatisticsContainer/StatisticsContainer";
+import Currency from "../../components/Currency/Currency";
+// import DashboardPage from "../DashboardPage/DashboardPage";
+// import { Dashboard } from "@mui/icons-material";
 
 export default function Statistics() {
   return (
-    <div className={css.statisticsBox}>
+    <div className={css.statistics}>
       <Media
         query="(max-width: 767px)"
         render={() => (
-          <>
-            {/* <Header />
-          <Navigation /> */}
-            <Spinner />
+          <div>
+            <Header />
+            <Navigation />
             <StatisticsContainer />
-          </>
+          </div>
         )}
       />
 
-      <>
+      <div className={css.statistics}>
         <Media
           query="(min-width: 768px) and (max-width: 1279px)"
           render={() => (
-            <>
-              {/* <Header /> */}
-              <div className={css.box}>
+            <div>
+              <Header />
+              <div className={css.blocks}>
                 <div>
-                  {/* <Navigation />
-                <TotalBalanceComponent /> */}
+                  <Navigation />
+                  <Balance />
                 </div>
-                <div>{/* <CurrencyComponent /> */}</div>
+                <div>
+                  <Currency />
+                </div>
+                {/* <div>
+                  <DashboardPage />
+                </div> */}
               </div>
               <div className={css.homeTab}>
                 <StatisticsContainer />
               </div>
-            </>
+            </div>
           )}
         />
-      </>
-      <>
+      </div>
+      <div className={css.statistics}>
         <Media
           query="(min-width: 1280px)"
           render={() => (
-            <>
-              {/* <Header /> */}
-              <div className={css.box}>
+            <div>
+              <Header />
+              <div className={css.blocks}>
                 <div>
-                  {/* <Navigation />
-                <TotalBalanceComponent />
-                <CurrencyComponent /> */}
+                  {/* <Dashboard /> */}
+                  <Navigation />
+                  <Balance />
+                  <Currency />
                 </div>
-                <div className={css.boxRight}>
+                <div className={css.rightBlock}>
                   <StatisticsContainer />
                 </div>
               </div>
-            </>
+            </div>
           )}
         />
-      </>
+      </div>
     </div>
   );
 }
