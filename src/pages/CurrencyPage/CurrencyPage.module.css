@@ -1,0 +1,13 @@
+@import '../../stylesheet/vars.css';
+.currencyPage {
+    background-color: var(--accent-background-color);
+    width: 100vw;
+    height: 100vh;
+}
+.currencyPage__nav {
+    margin: 12px 0 28px 0;
+}
+.currencyPage__currency {
+    display: flex;
+    justify-content: center;
+}
