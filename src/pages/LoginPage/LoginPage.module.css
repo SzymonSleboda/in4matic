@@ -1,119 +1,77 @@
-.title {
-  font-family: "Popins";
-}
+@import "../../stylesheet/vars.css";
+@import "../../stylesheet/fonts.css";
 
-.loginPageImg {
-  display: none;
-}
+/*Mobile*/
 
-.ellipsePink {
-  display: none;
-}
-
-.ellipsePurple {
-  display: none;
-}
-
+/*Tablet*/
 @media screen and (min-width: 768px) {
   .loginPage {
+    background-image: url(../../assets/images/RegistrationPage/Tablet/ellipse-tablet-purple.png),
+      url(../../assets/images/RegistrationPage/Tablet/ellipse-tablet-pink.png);
+
+    background-repeat: no-repeat, no-repeat;
+    background-position: bottom left, top right;
     background-color: #e7eaf2;
-    height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-
-  .containerLoginPage {
-    max-width: 768px;
-    margin: 0 auto;
-    position: relative;
-    height: 100vh;
-    padding-top: 60px;
-    min-height: 915px;
-    width: 100%;
-    max-height: 1024px;
-  }
-
-  .loginPageImg {
-    display: flex;
-    align-items: center;
-    position: relative;
-    gap: 40px;
-    margin-bottom: 50px;
-    margin-right: 60px;
   }
 
   .loginPageWrapper {
     display: flex;
-    flex-direction: column;
-  }
-
-  .loginPageBox {
-    margin: 0 auto;
+    justify-content: center;
+    align-items: center;
+    padding-top: 60px;
   }
 
   .backgroundImg {
-    width: 260px;
+    margin-bottom: 32px;
+    width: 274px;
     height: 250px;
   }
 
-  .ellipsePink {
-    position: absolute;
-    top: 0;
-    right: 0;
-    display: block;
+  .title {
+    font-family: "Poppins";
+    font-weight: 400;
+    font-size: 30px;
+    line-height: 1.5;
   }
 
-  .ellipsePurple {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    display: block;
+  .formContainer {
+    padding: 52px 91px 52px 107px;
   }
 }
 
+/*Desktop*/
 @media screen and (min-width: 1280px) {
   .loginPage {
-    height: 100vh;
-    display: flex;
-    align-items: center;
-  }
-
-  .loginPageWrapper {
-    flex-direction: row;
-    flex-grow: 1;
-    height: 100%;
-    align-items: center;
-    gap: 40px;
-  }
-
-  .containerLoginPage {
     display: flex;
     align-items: center;
     justify-content: center;
-    max-width: 1280px;
-    padding-top: 0;
-    max-height: 720px;
-    min-height: auto;
-    padding-left: 76px;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
   }
 
-  .loginPageImg {
+  .loginPageWrapper {
+    display: flex;
+    align-items: center;
     flex-direction: column;
-    gap: 28px;
-    margin-right: 0px;
+    padding: 153px 31px 77.5px 66px;
   }
 
   .backgroundImg {
-    width: 435px;
-    height: 419px;
-    margin-top: 120px;
+    margin-bottom: 32px;
+    width: 452px;
+    height: 413px;
   }
 
-  .ellipsePinkWrapper {
-    display: none;
-  }
-
-  .ellipsePink {
-    position: static;
+  .formContainer {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 52px 91px 52px 107px;
+    background-color: rgba(255, 255, 255, 0.4);
+    backdrop-filter: blur(25px);
   }
 }

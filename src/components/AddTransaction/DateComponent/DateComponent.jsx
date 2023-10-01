@@ -1,9 +1,8 @@
-import React from "react";
-import Datetime from "react-datetime";
+import "react-datetime/css/react-datetime.css";
 
-import styles from "./DateComponent.module.css";
+import { DatetimeStyled } from "./DateComponent.styled";
 
-export const DateComponent = ({
+const DateComponent = ({
   field,
   className,
   dateFormat,
@@ -12,16 +11,16 @@ export const DateComponent = ({
   onChange,
 }) => {
   return (
-    <div className={styles.dateComponent}>
-      <Datetime
-        name={field.name}
-        className={`${className} ${styles.datetime}`}
-        dateFormat={dateFormat}
-        timeFormat={timeFormat}
-        value={value}
-        onChange={(val) => onChange(val)}
-        closeOnSelect={true}
-      />
-    </div>
+    <DatetimeStyled
+      name={field.name}
+      className={className}
+      dateFormat={dateFormat}
+      timeFormat={timeFormat}
+      value={value}
+      onChange={(val) => onChange(val)}
+      closeOnSelect={true}
+    />
   );
 };
+
+export default DateComponent;

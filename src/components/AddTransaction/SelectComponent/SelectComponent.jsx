@@ -1,8 +1,9 @@
 import React from "react";
 import Select, { components } from "react-select";
+
 import { TfiAngleDown } from "react-icons/tfi";
 
-import css from "./SelectComponent.module.css";
+import { selectStyles } from "./SelectComponent.styled";
 
 const DropdownIndicator = (props) => {
   return (
@@ -12,7 +13,7 @@ const DropdownIndicator = (props) => {
   );
 };
 
-export const SelectComponent = ({
+const SelectComponent = ({
   name,
   options,
   placeholder = "Select",
@@ -20,19 +21,19 @@ export const SelectComponent = ({
   onChange = () => {},
 }) => {
   return (
-    <div className={css.selectComponent}>
-      <Select
-        name={name}
-        className={`${css.select} ${className}`}
-        placeholder={placeholder}
-        options={options}
-        onChange={onChange}
-        components={{ DropdownIndicator }}
-        styles={css()}
-        openMenuOnFocus={true}
-        closeMenuOnSelect={true}
-        isSearchable={true}
-      />
-    </div>
+    <Select
+      name={name}
+      className={className}
+      placeholder={placeholder}
+      options={options}
+      onChange={onChange}
+      components={{ DropdownIndicator }}
+      styles={selectStyles()}
+      openMenuOnFocus={true}
+      closeMenuOnSelect={true}
+      isSearchable={true}
+    />
   );
 };
+
+export default SelectComponent;

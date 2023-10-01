@@ -117,7 +117,7 @@ export const RegistrationForm = () => {
                   style={{
                     color: "#ff6596",
                     position: "absolute",
-                    bottom: screenWidth < 765 ? "-45px" : "-30px",
+                    bottom: screenWidth < 765 ? "-50px" : "-30px",
                     left: "0",
                     fontFamily: "Poppins",
                     fontSize: "13px",

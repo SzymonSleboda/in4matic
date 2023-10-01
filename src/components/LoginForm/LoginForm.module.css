@@ -1,137 +1,165 @@
-.loginForm {
-  max-width: 320px;
-  height: 100dvh;
+@import "../../stylesheet/vars.css";
+@import "../../stylesheet/fonts.css";
+
+/*Mobile*/
+.form {
+  margin: 0px auto;
+  height: 100vh;
+  overflow: hidden;
   display: flex;
+  flex-direction: column;
+  position: relative;
+  justify-content: center;
   align-items: center;
-  justify-items: center;
-  margin: 0 auto;
-  font-family: "Circle";
+  background-color: rgb(255, 255, 255);
 }
-.loginFormHeader {
+
+.logoContainer {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 0 auto;
   margin-bottom: 60px;
 }
 
-.loginFormField {
-  display: block;
-}
-.btn {
-  width: 280px;
-  height: 50px;
-  border-radius: 20px;
-  text-transform: uppercase;
-  border: none;
-  margin: 0 auto;
-  margin-bottom: 20px;
-  margin-top: 40px;
-  outline: none;
+.logo {
+  margin-right: 15px;
 }
 
-.btn:last-child {
-  margin-bottom: 0;
-  margin-top: 0;
+.title {
+  font-family: "Poppins";
+  font-weight: 700;
+  font-size: 22px;
+  line-height: 0.85;
+
+  color: var(--dark-font-color);
 }
 
-.primary {
-  background-color: #24cca7;
-  color: white;
-}
-
-.secondary {
-  background-color: transparent;
-  border: 1px solid #4a56e2;
-  color: #4a56e2;
+.inputContainer {
+  position: relative;
+  margin-bottom: 40px;
 }
 
 .input {
+  font-family: "Circe";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+
+  color: var(--logout-button-color);
+
   border: none;
   outline: none;
-  margin-left: 20px;
+  border-bottom: 1px solid var(--main-switch-color);
+  height: 24px;
+  padding: 8px 8px 8px 45px;
+}
+.input:focus {
+  border-bottom: 1px solid var(--secondary-brand-color);
+}
+.inputIcon {
+  width: 24px;
+  height: 24px;
+  position: absolute;
+  left: 10px;
+  top: 30%;
 }
 
-.inputPassword {
-  margin-left: 22px;
-}
-
-.passwordIcon {
-  margin-left: 2px;
-}
-
-.textField {
+.buttonContainer {
   display: flex;
+  flex-direction: column;
+}
+
+.mainButton {
+  font-family: "Circe";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  color: var(--light-font-color);
+  background: var(--secondary-brand-color);
+  outline: none;
+  border: none;
+  border-radius: 20px;
   width: 280px;
-  padding-left: 10px;
-  padding-bottom: 8px;
-  margin-top: 40px;
-  border-bottom: 1px solid #e0e0e0;
+  height: 50px;
+
+  margin-bottom: 20px;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
 }
 
-.validation {
-  display: block;
-  color: red;
-  margin-top: 8px;
+.mainButton:hover {
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
 }
 
+.secondaryButton {
+  font-family: "Circe";
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+
+  color: #4a56e2;
+  background: #ffffff;
+  border: 1px solid var(--primary-brand-color);
+  border-radius: 20px;
+  width: 280px;
+  height: 50px;
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+}
+
+.passwordVisibilityToggle {
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  right: -5px;
+  top: 30%;
+  cursor: pointer;
+}
+
+.secondaryButton:hover {
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+/*Tablet*/
 @media screen and (min-width: 768px) {
-  .loginForm {
-    max-width: 533px;
-    width: 533px;
-    border-radius: 20px;
-    background-color: white;
+  .form {
     height: auto;
-    padding-top: 40px;
-    padding-bottom: 62px;
-    padding-left: 58px;
-    padding-right: 58px;
-    justify-content: center;
-    position: relative;
+    max-width: 468px;
+    padding: 40px 59px 66px 65px;
+    border-radius: 20px;
   }
 
-  .boxForm {
-    flex-grow: 1;
+  .logo {
+    margin-right: 20px;
   }
 
-  .loginFormField {
-    width: 100%;
-  }
-
-  .btn {
-    max-width: 300px;
-    height: 50px;
-  }
-
-  .btn:last-child {
-    margin-bottom: 0;
+  .title {
+    font-size: 30px;
+    line-height: 1.5;
   }
 
   .input {
-    width: 100%;
+    width: 347px;
+    height: 32px;
   }
 
-  .logoIcon {
-    width: 181px;
-  }
-}
-
-@media screen and (min-width: 1280px) {
-  .loginFormWrapper {
-    height: 100%;
-    background-image: url(../../assets/images/LoginForm/ellipse-pink-background.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    padding-left: 107px;
-    padding-right: 91px;
-  }
-  .loginForm {
-    width: 533px;
+  .mainButton {
+    width: 300px;
+    height: 50px;
   }
 
-  .btn {
-    margin-bottom: 20px;
+  .secondaryButton {
+    width: 300px;
+    height: 50px;
   }
 }

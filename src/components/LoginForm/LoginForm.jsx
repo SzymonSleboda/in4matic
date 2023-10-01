@@ -1,108 +1,154 @@
-import EmailIcon from "../../assets/icons/email.svg";
-import PasswordIcon from "../../assets/icons/password.svg";
-import LogoIcon from "../../assets/icons/logo-loginForm.svg";
-import css from "./LoginForm.module.css";
-import { useDispatch } from "react-redux";
+import React, { useState } from "react";
+import { Formik, Form } from "formik";
 import * as Yup from "yup";
-import { Formik } from "formik";
+
+import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+
+import EmailIcon from "@mui/icons-material/Email";
+import LockIcon from "@mui/icons-material/Lock";
+import VisibilityIcon from "@mui/icons-material/Visibility";
+import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+
+import css from "./LoginForm.module.css";
+
+import logo from "../../assets/icons/logo.svg";
 import { login } from "../../redux/auth/auth-operations";
 
 export const LoginForm = () => {
+  const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
 
-  const handleSubmit = values => {
-    dispatch(login(values));
-  };
-  const signUpSchema = Yup.object().shape({
+  const signUpSchema = Yup.object({
     email: Yup.string()
       .email("Invalid email address.")
       .required("Please provide your email."),
-    password: Yup.string()
-      .required("Please provide your password.")
-      .min(6, "Password is too short - should be 6 characters minimum.")
-      .max(12, "Password is too long - should be 12 characters maximum."),
+    password: Yup.string().required("Please provide your password."),
   });
 
+  const handlePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const handleSubmit = ({ email, password }) => {
+    dispatch(login({ email, password }));
+  };
+
   return (
-    <div className={css.loginFormWrapper}>
-      <div className={css.loginForm}>
-        <div className={css.boxForm}>
-          <div className={css.loginFormHeader}>
-            <img className={css.logoIcon} src={LogoIcon} alt='logo-icon'></img>
-          </div>
+    <Formik
+      initialValues={{
+        email: "",
+        password: "",
+      }}
+      onSubmit={handleSubmit}
+      validationSchema={signUpSchema}
+      validateOnBlur
+    >
+      {({
+        handleChange,
+        handleBlur,
+        touched,
+        isValid,
+        dirty,
+        values,
+        errors,
+      }) => (
+        <div className={css.formContainer}>
+          <Form className={css.form}>
+            <div className={css.logoContainer}>
+              <img className={css.logo} alt="Logo" src={logo} />
+              <h1 className={css.title}>Wallet</h1>
+            </div>
+            <div className={css.inputContainer}>
+              {touched.email && errors.email ? (
+                <p
+                  style={{
+                    color: "#ff6596",
+                    position: "absolute",
+                    bottom: "-30px",
+                    left: "0",
+                    fontFamily: "Poppins",
+                    fontSize: "13px",
+                  }}
+                >
+                  {errors.email}
+                </p>
+              ) : null}
 
-          <Formik
-            initialValues={{ email: "", password: "" }}
-            validationSchema={signUpSchema}
-            onSubmit={(values, { setSubmitting }) => {
-              handleSubmit(values);
-              setSubmitting(false);
-            }}>
-            {({
-              values,
-              errors,
-              touched,
-              handleChange,
-              handleBlur,
-              handleSubmit,
-              isSubmitting,
-            }) => (
-              <form onSubmit={handleSubmit}>
-                <label className={`${css.textField} ${css.loginFormField}`}>
-                  <img src={EmailIcon} alt='email-icon'></img>
+              <EmailIcon
+                className={css.inputIcon}
+                style={{ color: "#e0e0e0" }}
+              />
+              <input
+                className={css.input}
+                type="text"
+                name="email"
+                id="email"
+                placeholder="E-mail"
+                value={values.email}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+            </div>
+            <div className={css.inputContainer}>
+              {touched.password && errors.password ? (
+                <p
+                  style={{
+                    color: "#ff6596",
+                    position: "absolute",
+                    bottom: "-30px",
+                    left: "0",
+                    fontFamily: "Poppins",
+                    fontSize: "13px",
+                  }}
+                >
+                  {errors.password}
+                </p>
+              ) : null}
 
-                  <input
-                    placeholder='E-mail'
-                    name='email'
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.email}
-                    className={css.input}></input>
-                </label>
-
-                {errors.email && touched.email && (
-                  <span className={css.validation}>{errors.email}</span>
+              <LockIcon
+                className={css.inputIcon}
+                style={{ color: "#e0e0e0" }}
+              />
+              <input
+                className={css.input}
+                type={showPassword ? "text" : "password"}
+                name="password"
+                placeholder="Password"
+                id="password"
+                value={values.password}
+                onChange={handleChange}
+                onBlur={handleBlur}
+              />
+              <span
+                onClick={handlePasswordVisibility}
+                className={css.passwordVisibilityToggle}
+              >
+                {showPassword ? (
+                  <VisibilityOffIcon style={{ color: "#e0e0e0" }} />
+                ) : (
+                  <VisibilityIcon style={{ color: "#e0e0e0" }} />
                 )}
-                <label className={`${css.textField} ${css.loginFormField}`}>
-                  <img
-                    className={css.passwordIcon}
-                    src={PasswordIcon}
-                    alt='password-icon'></img>
+              </span>
+            </div>
 
-                  <input
-                    placeholder='Password'
-                    name='password'
-                    type='password'
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={values.password}
-                    className={`${css.input} ${css.inputPassword}`}></input>
-                </label>
-
-                {errors.password && touched.password && (
-                  <span className={css.validation}>{errors.password}</span>
-                )}
-
+            <div className={css.buttonContainer}>
+              <button type="submit" className={css.mainButton}>
+                Log in
+              </button>
+              <Link to="/register">
                 <button
-                  disabled={isSubmitting}
-                  className={`${css.btn} ${css.primary} ${css.loginFormField}`}
-                  color='primary'
-                  onClick={() => {}}
-                  type='submit'>
-                  Log in
-                </button>
-                <button
-                  disabled={isSubmitting}
-                  className={`${css.btn} ${css.secondary}  ${css.loginFormField}`}
-                  color='secondary'
-                  type='button'>
+                  type="button"
+                  className={css.secondaryButton}
+                  disabled={!isValid && !dirty}
+                >
                   Register
                 </button>
-              </form>
-            )}
-          </Formik>
+              </Link>
+            </div>
+          </Form>
         </div>
-      </div>
-    </div>
+      )}
+    </Formik>
   );
 };
