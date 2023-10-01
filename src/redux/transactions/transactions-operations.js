@@ -20,11 +20,11 @@ export const addTransaction = createAsyncThunk(
 
 export const getTransactions = createAsyncThunk(
   "categories/getAllTransactions",
-  async ({ token }, { rejectWithValue }) => {
+  async ({ accessToken }, { rejectWithValue }) => {
     try {
       const response = await axios.get(`/transactions`, {
         headers: {
-          Authorization: `Bearer ${token}`,
+          Authorization: `Bearer ${accessToken}`,
         },
       });
       return response.data.data;
@@ -64,7 +64,9 @@ export const getTransactionsCategories = createAsyncThunk(
   "transactions/categories",
   async ({ year, month }, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`/transactions/categories/${month}/${year}`);
+      const response = await axios.get(
+        `/transactions/categories/${month}/${year}`
+      );
       return response.data;
     } catch (error) {
       return rejectWithValue(error);
