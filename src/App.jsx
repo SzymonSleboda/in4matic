@@ -1,10 +1,10 @@
-import { Route, Routes, Navigate, useLocation } from "react-router-dom";
-import { lazy, Suspense, useEffect, useState } from "react";
+import { Route, Routes, Navigate } from "react-router-dom";
+import { lazy, Suspense } from "react";
 // import Layout from './layout/Layout';
 // import WithAuthRedirect from './routes/WithAuthRedirect';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useSelector } from "react-redux";
+// import { useSelector } from "react-redux";
 // import { ModalLogout } from './components/ModalLogout/ModalLogout';
 // import { AddTransactionModal } from './components/AddTransactionModal/AddTransactionModal';
 // import { EditTransactionModal } from './components/EditTransactionModal/EditTransactionModal';
