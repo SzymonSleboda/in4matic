@@ -6,6 +6,7 @@ import { selectName } from "../../redux/auth/auth-selectors";
 import { toggleModalOpen, setModalType } from "../../redux/global/global-slice";
 import { selectIsModalOpen } from "../../redux/global/global-selectors";
 import { ModalLogout } from "../ModalLogout/ModalLogout";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -21,10 +22,9 @@ const Header = () => {
     <>
       <header className={css.header}>
         <div className={css.containerHeader}>
-          <a href="/">
-            {/* do zmiany na Link przy podłączeniu routera */}
+          <Link to="/home">
             <img src={logoIcon} className={css.logo} alt="logo"></img>
-          </a>
+          </Link>
           <div className={css.logout}>
             <span className={css.nameText}>
               <button className={css.button} type="button">
