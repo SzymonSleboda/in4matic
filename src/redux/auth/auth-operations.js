@@ -6,9 +6,10 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 axios.defaults.baseURL = "https://in4matic-4c2abd694526.herokuapp.com/";
 
 const token = {
-  set(token) {
-    axios.defaults.headers.common.Authorization = `Bearer ${token}`;
+  set(accessToken) {
+    axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
   },
+
   unset() {
     axios.defaults.headers.common.Authorization = "";
   },
@@ -19,8 +20,8 @@ export const register = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await axios.post("/users/register", credentials);
+      token.set(data.accessToken);
       toast.success("Registration is successful!");
-      token.set(data.token);
       return data;
     } catch (error) {
       return rejectWithValue(toast.error("Email is already in use"));
@@ -33,7 +34,7 @@ export const login = createAsyncThunk(
   async (credentials, { rejectWithValue }) => {
     try {
       const { data } = await axios.post("/users/login", credentials);
-      token.set(data.token);
+      token.set(data.accessToken);
       toast.success(`Welcome, ${data.user.name}!`);
       return data;
     } catch (error) {
@@ -60,7 +61,7 @@ export const logout = createAsyncThunk(
 export const fetchCurrentUser = createAsyncThunk(
   "users/refresh",
   async (_, { rejectWithValue, getState }) => {
-    const tokenLS = getState().auth.token;
+    const tokenLS = getState().auth.accessToken;
     if (!tokenLS) {
       return rejectWithValue("No token");
     }
