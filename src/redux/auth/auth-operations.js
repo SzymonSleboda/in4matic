@@ -67,7 +67,7 @@ export const fetchCurrentUser = createAsyncThunk(
     }
     token.set(tokenLS);
     try {
-      const { data } = await axios.get("/users/current");
+      const { data } = await axios.get("/users/profile");
       return data;
     } catch (error) {
       return rejectWithValue(error);
