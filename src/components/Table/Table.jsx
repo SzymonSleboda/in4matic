@@ -196,7 +196,7 @@ const Table = () => {
             {data.length === 0 ? (
               <tr>
                 <td className={css.noData} colSpan="6">
-                  <span className={css.circeBoldBlack18px}>
+                  <span className={css.noTransactionText}>
                     No transactions found.
                   </span>
                 </td>

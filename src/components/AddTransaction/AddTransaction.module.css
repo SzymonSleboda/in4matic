@@ -282,3 +282,34 @@ input,
   border: 1px solid var(--primary-brand-color);
   color: var(--primary-brand-color);
 }
+
+@media screen and (max-width: 425px) {
+  .modalContainer {
+    max-width: 320px;
+    width: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .modalContainerTransaction {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .switcher {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .textarea:not(:last-child) {
+    margin-bottom: 20px;
+  }
+
+  input,
+  .textarea .select {
+    width: 100%;
+    padding-inline: 0;
+    padding-block: 10px;
+    text-align: center;
+  }
+}

@@ -91,8 +91,8 @@ export const AddTransaction = () => {
     }
   };
 
-  const handleSelectChange = (categoryId) => {
-    setTransactionState((prev) => ({ ...prev, categoryId }));
+  const handleSetCategory = (category) => {
+    setTransactionState((prev) => ({ ...prev, categoryId: category }));
   };
 
   const handleDateChange = (selectedDate) => {
@@ -208,13 +208,12 @@ export const AddTransaction = () => {
                           value: option.id,
                           label: option.category,
                         }))}
-                        onChange={(option) => {
-                          handleSelectChange(option.value);
-                        }}
+                        handleSetCategory={handleSetCategory}
                       />
                     </label>
                   </div>
                 )}
+
                 <div className={css.amountDateWrapper}>
                   <div className={css.amountWrapper}>
                     <label>
