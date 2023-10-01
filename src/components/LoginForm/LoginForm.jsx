@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
-
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
 import EmailIcon from "@mui/icons-material/Email";
 import LockIcon from "@mui/icons-material/Lock";
@@ -11,13 +11,13 @@ import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
 
 import css from "./LoginForm.module.css";
-
 import logo from "../../assets/icons/logo.svg";
 import { login } from "../../redux/auth/auth-operations";
 
 export const LoginForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();
+  const navigate = useNavigate(); 
 
   const signUpSchema = Yup.object({
     email: Yup.string()
@@ -31,7 +31,11 @@ export const LoginForm = () => {
   };
 
   const handleSubmit = ({ email, password }) => {
-    dispatch(login({ email, password }));
+    dispatch(login({ email, password }))
+      .unwrap()
+      .then(() => {
+        navigate("/home"); 
+      });
   };
 
   return (
