@@ -1,6 +1,5 @@
 import s from "../DashboardPage/DashboardPage.module.css";
 import Header from "../../components/Header/Header";
-
 import HomeTab from "../../components/HomeTab/HomeTab";
 import Table from "../../components/Table/Table";
 import { Navigation } from "../../components/Navigation/Navigation";
