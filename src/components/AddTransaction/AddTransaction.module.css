@@ -25,7 +25,6 @@
   width: 540px;
   height: auto;
   padding: 20px;
-  background-color: rgb(255, 255, 255);
   z-index: 102;
   background-color: var(--light-background-color);
   border-radius: 20px;
