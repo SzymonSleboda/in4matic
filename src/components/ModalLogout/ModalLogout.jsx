@@ -1,5 +1,6 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 import { toggleModalOpen, setModalType } from "../../redux/global/global-slice";
 import { logout } from "../../redux/auth/auth-operations";
@@ -10,6 +11,7 @@ export const ModalLogout = () => {
   const isModalOpen = useSelector((state) => state.global.isModalOpen);
   const modalType = useSelector((state) => state.global.modalType);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -46,6 +48,7 @@ export const ModalLogout = () => {
                   dispatch(logout());
                   dispatch(toggleModalOpen());
                   dispatch(setModalType(null));
+                  navigate("/login");
                 }}
               >
                 LOG ME OUT
