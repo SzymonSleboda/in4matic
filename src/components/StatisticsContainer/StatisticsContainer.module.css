@@ -4,17 +4,22 @@
 .containerBackground {
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(25px);
-  width: 100%;
-  padding-top: 32px;
-  padding-bottom: 44px;
-  padding-left: 69px;
-  padding-right: 16px;
+  /* height: 80vh; */
+  width: 800px;
+  padding-top: 40px;
+  padding-bottom: 24px;
+  padding-left: 32px;
+  padding-right: 32px;
+  border-radius: 30px;
 }
 
 .containerChart {
   margin-right: 62px;
 }
-
+.container {
+  display: flex;
+  justify-content: space-between;
+}
 h1 {
   margin-bottom: 20px;
   font-family: "Poppins";
@@ -23,27 +28,30 @@ h1 {
   line-height: 45px;
 }
 
-@media screen and (min-width: 320px) {
+
+@media screen and (min-width: 320px) and (max-width: 767px) {
   .containerBackground {
     /* background: var(--accent-background-color); */
     background: var(--accent-background-color);
     /* backdrop-filter: blur(25px);  */
-    width: 100%;
+    width: 320px;
     padding: 0;
+    height: 1300px;
   }
   .containerChart {
     margin-left: 20px;
   }
   .textTitle {
-    margin-left: 20px;
+    margin-left: 0;
   }
+  .container {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
 }
 
-@media screen and (min-width: 768px) {
-  .container {
-    display: flex;
-    justify-content: space-between;
-  }
+@media screen and (min-width: 768px) and (max-width: 1279px) {
   .containerDiagramTab {
     width: 395px;
     margin-right: 15px;
@@ -52,10 +60,16 @@ h1 {
     /* background: var(--accent-background-color); */
     background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(25px);
-    width: 100%;
-    padding-top: 40px;
-    padding-bottom: 24px;
-    padding-left: 32px;
-    padding-right: 32px;
+    width: 678px;
+    padding: 12px;
+    margin: 12px;
+    margin-left: 0;
+  }
+  .container {
+    justify-content: start;
+    width: 580px;
+  }
+  .containerChart {
+    margin: 0;
   }
 }

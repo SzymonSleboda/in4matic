@@ -103,6 +103,9 @@ p {
   .statisticsList {
     width: 336px;
   }
+  .trBox {
+    width: 276px;
+  }
 }
 
 @media screen and (min-width: 1280px) {

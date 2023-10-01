@@ -77,7 +77,6 @@ const Calendar = ({ setMonthAmount, setYearAmount }) => {
       <div>
         <div onClick={toggleMonth} className={css.monthBox}>
           <p className={css.calendarText}>{monthTime ? monthTime : "Month"}</p>
-          {/* <img src={arrow} alt=">" /> */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"
@@ -105,7 +104,6 @@ const Calendar = ({ setMonthAmount, setYearAmount }) => {
       <div>
         <div onClick={toggleYear} className={`${css.monthBox} ${css.yearBox}`}>
           <p className={css.calendarText}>{yearTime ? yearTime : "Year"}</p>
-          {/* <img src={arrow} alt=">" /> */}
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="20"

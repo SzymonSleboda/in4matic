@@ -1,5 +1,5 @@
-/* @import "../../../stylesheet/fonts.css";
-@import "../../../stylesheet/vars.css"; */
+@import "../../../stylesheet/fonts.css";
+@import "../../../stylesheet/vars.css";
 
 @media screen and (min-width: 320px) {
   .calendarBox {
@@ -7,7 +7,18 @@
     width: 395px;
   }
   .monthBox {
-    margin: 20px 20px;
+    cursor: pointer;
+    width: 280px;
+    margin: 20px;
+  }
+  .yearBox {
+    width: 280px;
+    margin-top: 20px;
+    margin: 20px;
+    cursor: pointer;
+  }
+  .monthBox {
+    /* margin: 20px 20px; */
     padding-left: 20px;
     padding-right: 20px;
     display: flex;
@@ -21,7 +32,7 @@
     cursor: pointer;
   }
   .yearBox {
-    margin-top: 20px;
+    /* margin-top: 20px; */
     cursor: pointer;
   }
   .calendarText {
@@ -42,12 +53,12 @@
     position: relative;
   }
   .monthBox {
-    width: 140px;
+    width: 112px;
     cursor: pointer;
+    margin-left: 0;
   }
   .yearBox {
-    margin-top: 0;
-    margin-left: 16px;
+    margin-left: 0;
     cursor: pointer;
   }
   .datetime {
@@ -64,10 +75,13 @@
   }
   .monthBox {
     cursor: pointer;
-    width: 177px;
+    width: 156px;
+    margin-right: 26px;
+    margin-left: 0;
   }
   .yearBox {
-    margin-left: 32px;
+    /* margin-left: 32px; */
     cursor: pointer;
+    margin-left: 0;
   }
 }
