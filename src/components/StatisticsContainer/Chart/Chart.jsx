@@ -8,54 +8,40 @@ import { useSelector } from "react-redux";
 ChartJS.register(ArcElement, Tooltip, Legend);
 
 const DataDoughnut = () => {
-  const balance = 0;
+  const balance = useSelector((state) => state.transactions.balance);
+  console.log(balance);
 
   const optionsChart = { plugins: { tooltip: true } };
   const [options] = useState(optionsChart);
   let transactionsSummary = 0;
   console.log(transactionsSummary);
 
-  // WYCIĄGA WARTOŚCI LICZBOWE Z BACKENDU
-  // const totals = [];
-  // transactionsSummary?.forEach((item) => {
-  //   totals.push(item.total);
-  // });
-
-  // WYCIĄGA NAZWY Z BACKENDU
-  const names = [];
-  // transactionsSummary?.forEach((item) => {
-  //   names.push(item.name);
-  // });
-
   let statisticsList = useSelector((state) => state.transactions.summary);
   console.log(statisticsList);
 
-  const getTitleColor = (title) => {
-    const item = statisticsList.find((item) => item.title === title);
-    return item ? item.color : "red";
-  };
+  // WYCIĄGA NAZWY Z BACKENDU
+  const colors = statisticsList?.map((color) => color.color);
 
-  const colors = [];
-  names.forEach((item) => {
-    const color = getTitleColor(item);
-    colors.push(color);
-  });
+  // WYCIĄGA WARTOŚCI LICZBOWE Z BACKENDU
+  const values = statisticsList?.map((total) => total.value);
+
+  // const labels = statisticsList?.map((label) => label.title);
+  // console.log(labels)
+
+  // const getTitleColor = (title) => {
+  //   const item = statisticsList.find((item) => item.title === title);
+  //   return item ? item.color : "red";
+  // };
 
   const set = {
     datasets: [
       {
-        data: [12, 19, 3, 5, 2, 3],
-        backgroundColor: [
-          "#24CCA7",
-          "#808080",
-          "#FED057",
-          "#FFD8D0",
-          "#FD9498",
-          "#C5BAFF",
-        ],
+        data: values,
+        backgroundColor: colors,
         borderWidth: 0,
         cutout: 90,
         hoverBorderWidth: 5,
+        // label: labels,
       },
     ],
   };

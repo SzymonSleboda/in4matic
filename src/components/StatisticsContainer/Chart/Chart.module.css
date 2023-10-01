@@ -1,5 +1,5 @@
-/* @import "../../../stylesheet/fonts.css";
-@import "../../../stylesheet/vars.css"; */
+@import "../../../stylesheet/fonts.css";
+@import "../../../stylesheet/vars.css";
 
 .doughnut {
   position: relative;
@@ -10,6 +10,7 @@
   margin-bottom: 32px;
 }
 .doughnutSumExpenses {
+  font-family: "Circe";
   position: absolute;
   left: 140px;
   transform: translateX(-50%);
