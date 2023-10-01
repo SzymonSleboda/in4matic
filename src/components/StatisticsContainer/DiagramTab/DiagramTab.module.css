@@ -47,8 +47,8 @@ p {
 
   .tdBox {
     border-bottom: 1px solid var(--gray-background-color);
-    box-shadow: 0px 1px 0px rgba(255, 255, 255, 0.6);
-    padding: 14px 0 14px 0;
+    /* box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.6); */
+    padding: 14px 51px 14px 0;
     color: var(--dark-font-color);
     font-family: "Circe";
     font-size: 16px;
@@ -87,8 +87,15 @@ p {
     line-height: 1.5;
     color: var(--secondary-brand-color);
     margin-right: 20px;
-
     font-family: "Circe";
+  }
+  .textVi {
+    text-align: right;
+    margin-right: 20px;
+  }
+  .textVe {
+    text-align: right;
+    margin-right: 40px;
   }
 }
 

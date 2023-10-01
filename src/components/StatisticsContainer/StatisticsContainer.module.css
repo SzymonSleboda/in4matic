@@ -5,6 +5,10 @@
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(25px);
   width: 100%;
+  padding-top: 32px;
+  padding-bottom: 44px;
+  padding-left: 69px;
+  padding-right: 16px;
 }
 
 .containerChart {
@@ -22,12 +26,13 @@ h1 {
 @media screen and (min-width: 320px) {
   .containerBackground {
     /* background: var(--accent-background-color); */
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(25px);
+    background: var(--accent-background-color);
+    /* backdrop-filter: blur(25px);  */
     width: 100%;
+    padding: 0;
   }
   .containerChart {
-    margin-right: auto;
+    margin-left: 20px;
   }
   .textTitle {
     margin-left: 20px;
@@ -48,5 +53,9 @@ h1 {
     background: rgba(255, 255, 255, 0.4);
     backdrop-filter: blur(25px);
     width: 100%;
+    padding-top: 40px;
+    padding-bottom: 24px;
+    padding-left: 32px;
+    padding-right: 32px;
   }
 }

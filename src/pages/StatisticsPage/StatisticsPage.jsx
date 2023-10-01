@@ -17,7 +17,9 @@ export default function Statistics() {
         render={() => (
           <div>
             <Header />
-            <Navigation />
+            <div className={css.statisticsForNav}>
+              <Navigation />
+            </div>
             <StatisticsContainer />
           </div>
         )}
@@ -29,7 +31,7 @@ export default function Statistics() {
           render={() => (
             <div>
               <Header />
-              <div className={css.blocks}>
+              <div className={css.statisticBox}>
                 <div>
                   <Navigation />
                   <Balance />
@@ -41,7 +43,7 @@ export default function Statistics() {
                   <DashboardPage />
                 </div> */}
               </div>
-              <div className={css.homeTab}>
+              <div className={css.statisticPage}>
                 <StatisticsContainer />
               </div>
             </div>
@@ -54,14 +56,14 @@ export default function Statistics() {
           render={() => (
             <div>
               <Header />
-              <div className={css.blocks}>
+              <div className={css.statisticBox}>
                 <div>
                   {/* <Dashboard /> */}
                   <Navigation />
                   <Balance />
                   <Currency />
                 </div>
-                <div className={css.rightBlock}>
+                <div className={css.rightBox}>
                   <StatisticsContainer />
                 </div>
               </div>
