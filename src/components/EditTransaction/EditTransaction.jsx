@@ -74,7 +74,7 @@ export const EditTransaction = ({ id }) => {
   }, [isEditTransactionModalOpen, categories, dispatch]);
 
   const handleBackdropClick = (e) => {
-    if (e.target === event.currentTarget) {
+    if (e.target === e.currentTarget) {
       dispatch(toggleEditTransactionModalOpen());
     }
   };
@@ -247,7 +247,6 @@ export const EditTransaction = ({ id }) => {
                         className={css["amount"]}
                       />
                     </label>
-                    <ErrorMessageStyled name="amount" component="div" />
                   </div>
 
                   <div className={css.dateWrapper}>
@@ -263,7 +262,6 @@ export const EditTransaction = ({ id }) => {
                         onChange={handleDateChange}
                       />
                     </label>
-                    <ErrorMessageStyled name="date" component="div" />
                   </div>
                 </div>
                 <Field
