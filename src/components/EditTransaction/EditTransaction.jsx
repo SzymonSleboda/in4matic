@@ -16,7 +16,7 @@ import { selectId } from "../../redux/auth/auth-selectors";
 import { getCurrentUser } from "../../redux/user/user-operations";
 
 import DateComponent from "../AddTransaction/DateComponent/DateComponent";
-import  SelectComponent  from "../AddTransaction/SelectComponent/SelectComponent";
+import SelectComponent from "../AddTransaction/SelectComponent/SelectComponent";
 
 import css from "./EditTransaction.module.css";
 
@@ -111,8 +111,8 @@ export const EditTransaction = ({ id }) => {
     }
   };
 
-  const handleSelectChange = (categoryId) => {
-    setTransactionState((prev) => ({ ...prev, categoryId }));
+  const handleSetCategory = (category) => {
+    setTransactionState((prev) => ({ ...prev, categoryId: category }));
   };
 
   const handleDateChange = (selectedDate) => {
@@ -230,9 +230,7 @@ export const EditTransaction = ({ id }) => {
                             label: option.category,
                           };
                         })}
-                        onChange={(option) => {
-                          handleSelectChange(option.value);
-                        }}
+                        handleSetCategory={handleSetCategory}
                       />
                     </label>
                   </div>
