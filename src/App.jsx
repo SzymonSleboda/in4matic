@@ -7,7 +7,7 @@ import { RegistrationPage } from "./pages/RegistrationPage/RegistrationPage";
 import  SpinnerComponent  from "./components/Spinner/Spinner";
 
 const DashboardPage = lazy(() => import("./pages/DashboardPage/DashboardPage"));
-const StatisticsPage = lazy(() => import("./pages/StatisticsPage/StatisticsPage"));
+const StatisticsPage = lazy(() => import("./pages/StatisticsPage/Spage"));
 const CurrencyPage = lazy(() => import("./pages/CurrencyPage/CurrencyPage"));
 
 export const App = () => {
