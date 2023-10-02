@@ -1,9 +1,12 @@
+import React from "react";
 import css from "./Spinner.module.css";
 
-export const Spinner = () => {
+const SpinnerComponent = () => {
   return (
     <div>
       <span className={css.loader}></span>
     </div>
   );
 };
+
+export default SpinnerComponent;

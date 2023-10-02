@@ -3,7 +3,7 @@ import { selectIsLoading } from "../../redux/transactions/transactions-selectors
 import { toggleEditTransactionModalOpen } from "../../redux/global/global-slice";
 import { EditTransaction } from "../EditTransaction/EditTransaction";
 import { deleteTransaction } from "../../redux/transactions/transactions-operations";
-import { Spinner } from "../Spinner/Spinner";
+import SpinnerComponent from "../Spinner/Spinner";
 import css from "./Table.module.css";
 import editIcon from "./EditIcon.png";
 import { useState, useEffect } from "react";
@@ -280,7 +280,7 @@ const Table = () => {
           </tbody>
         </table>
       )}
-      {isLoading && <Spinner />}
+      {isLoading && <SpinnerComponent />}
     </div>
   );
 };
