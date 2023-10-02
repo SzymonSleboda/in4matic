@@ -4,6 +4,7 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { RegistrationPage } from "./pages/RegistrationPage/RegistrationPage";
+import { Spinner } from "./components/Spinner/Spinner";
 
 const DashboardPage = lazy(() => import("./pages/DashboardPage/DashboardPage"));
 const StatisticsPage = lazy(() => import("./pages/StatisticsPage/Spage"));
@@ -12,7 +13,7 @@ const CurrencyPage = lazy(() => import("./pages/CurrencyPage/CurrencyPage"));
 export const App = () => {
   return (
     <>
-      <Suspense>
+      <Suspense fallback = {<Spinner/>}>
         <Routes>
           <Route path="/" element={<Navigate to="/login" />} />
           <Route path="/login" element={<LoginPage />} />
