@@ -53,7 +53,7 @@ export const AddTransaction = () => {
     if (!Array.isArray(categories) || categories.length === 0) {
       dispatch(getCategories());
     }
-  }, [isTransactionModalOpen, dispatch]);
+  }, [isTransactionModalOpen, dispatch, categories]);
 
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
