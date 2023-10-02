@@ -4,10 +4,10 @@ import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { LoginPage } from "./pages/LoginPage/LoginPage";
 import { RegistrationPage } from "./pages/RegistrationPage/RegistrationPage";
-import  SpinnerComponent  from "./components/Spinner/Spinner";
+import SpinnerComponent from "./components/Spinner/Spinner";
 
 const DashboardPage = lazy(() => import("./pages/DashboardPage/DashboardPage"));
-const StatisticsPage = lazy(() => import("./pages/StatisticsPage/StatisticsPage"));
+const StatisticsPage = lazy(() => import("./pages/StatisticsPage/Spage"));
 const CurrencyPage = lazy(() => import("./pages/CurrencyPage/CurrencyPage"));
 
 export const App = () => {
