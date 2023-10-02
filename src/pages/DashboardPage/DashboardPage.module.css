@@ -1,10 +1,10 @@
-@import '../../stylesheet/vars.css';
-@import '../../stylesheet/fonts.css';
+@import "../../stylesheet/vars.css";
+@import "../../stylesheet/fonts.css";
 
 .dashboard {
-    background-color: var(--accent-background-color);
-    width: 100vw;
-    height: 100vh;
+  background-color: var(--accent-background-color);
+  width: 100vw;
+  height: 100vh;
 }
 .dashboard__content {
   padding: 12px 20px;
@@ -22,6 +22,10 @@
   margin-bottom: 28px;
 }
 
+.dashboard__table {
+  width: 100%;
+}
+
 /*Tablet*/
 
 @media screen and (min-width: 768px) {
@@ -31,14 +35,14 @@
     margin: 0;
     width: 100%;
     height: 100vh;
-        background-image: url(../../assets/images/RegistrationPage/Tablet/ellipse-tablet-purple.png),
+    background-image: url(../../assets/images/RegistrationPage/Tablet/ellipse-tablet-purple.png),
       url(../../assets/images/RegistrationPage/Tablet/ellipse-tablet-pink.png);
     background-repeat: no-repeat, no-repeat;
     background-position: bottom left, top right;
     backdrop-filter: blur(25px);
   }
   .dashboard::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;

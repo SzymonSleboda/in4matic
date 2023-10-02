@@ -9,12 +9,7 @@
   margin-top: 10px;
   color: var(--accent-brand-color);
 }
-.group306 {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  max-width: 100%;
-}
+
 th:first-child {
   border-top-left-radius: 30px;
   border-bottom-left-radius: 30px;
@@ -29,6 +24,14 @@ th:last-child {
   width: 100%;
   border-collapse: collapse;
   font-family: "Circe";
+}
+
+.tableContainer {
+  width: 100%;
+}
+
+.tableHeader {
+  width: 100%;
 }
 
 .tableHeaderRow {
@@ -138,13 +141,10 @@ th:last-child {
 .edit {
   cursor: pointer;
 }
+@media screen and (min-width: 768px) {
+}
 
-@media screen and (max-width: 1279px) {
-  .group306 {
-    margin-left: 0;
-    max-width: 100%;
-  }
-
+@media screen and (min-width: 1280px) {
   .center {
     text-align: none;
   }
@@ -153,35 +153,8 @@ th:last-child {
   .tableCell {
     padding: 10px 12px;
   }
-
-  .btn:hover {
-    background-color: var(--accent-brand-color);
-  }
 }
 
-@media screen and (max-width: 1023px) {
-  .group306 {
-    margin-left: 0;
-    max-width: 100%;
-  }
-
-  .tableHeaderRow,
-  .tableRow {
-    flex-direction: column;
-    border-radius: 30px;
-    margin-bottom: 10px;
-  }
-
-  .tableHeaderCell,
-  .tableCell {
-    padding: 10px 12px;
-  }
-
-  .tableCell:last-child {
-    margin-bottom: 10px;
-  }
-
-  .btn {
-    margin: 0;
-  }
+.btn:hover {
+  background-color: var(--accent-brand-color);
 }
