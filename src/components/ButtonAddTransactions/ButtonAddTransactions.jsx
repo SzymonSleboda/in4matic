@@ -24,6 +24,7 @@ export function ButtonAddTransactions() {
       >
         <BsFillPlusCircleFill
           size={44}
+          className={css.addTransactionIcon}
           style={{
             borderRadius: "50%",
             border: "none",

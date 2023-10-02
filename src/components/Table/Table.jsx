@@ -56,116 +56,112 @@ const Table = () => {
   };
 
   return (
-    <div className={css.group306}>
+    <div className={css.tableContainer}>
       {isMobile ? (
         data.length === 0 ? (
           <p className={css.noData}>No transactions found.</p>
         ) : (
           data.map((item) => (
-            <div className={css.mobileTableContainer} key={item._id}>
-              <table className={css.table}>
-                <thead>
-                  <tr className={css.tableHeaderRow}>
-                    <th className={css.tableHeaderCell}>
-                      <span className={css.circeBoldBlack18px}>Date</span>
-                    </th>
-                    <th className={css.tableHeaderCell}>
-                      <span className={css.circeBoldBlack18px}>Type</span>
-                    </th>
-                    <th className={css.tableHeaderCell}>
-                      <span className={css.circeBoldBlack18px}>Category</span>
-                    </th>
-                    <th className={css.tableHeaderCell}>
-                      <span className={css.circeBoldBlack18px}>Comment</span>
-                    </th>
-                    <th className={css.tableHeaderCell}>
-                      <span className={css.circeBoldBlack18px}>Sum</span>
-                    </th>
-                    <th className={css.tableHeaderCell}>
-                      <span className={css.circeBoldBlack18pxDelete}>
-                        Delete
-                      </span>
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr className={css.tableRow} key={item._id}>
-                    <td className={css.tableCell}>
-                      <span className={css.circeRegularNormalBlack16px}>
-                        {new Date(item.date).toLocaleDateString("pl-PL", {
-                          day: "2-digit",
-                          month: "2-digit",
-                          year: "numeric",
-                        })}
-                      </span>
-                    </td>
-                    <td className={`${css.tableCell} ${css.center}}`}>
-                      <span className={css.circeRegularNormalBlack16px}>
-                        {item.type === "INCOME" ? "+" : "-"}
-                      </span>
-                    </td>
-                    <td className={css.tableCell}>
-                      <span className={css.circeRegularNormalBlack16px}>
-                        {item.categoryId
-                          ? getCategoryName(item.categoryId)
-                          : "Other"}
-                      </span>
-                    </td>
-                    <td className={css.tableCell}>
-                      <span className={css.circeRegularNormalBlack16px}>
-                        {item.comment ? item.comment : "No comment"}
-                      </span>
-                    </td>
-                    <td className={css.tableCell}>
-                      <span
-                        className={
-                          item.type === "INCOME"
-                            ? `${css.circeBoldGreen16px}`
-                            : `${css.circeBoldRed16px}`
-                        }
+            <table className={css.table}>
+              <thead className={css.tableHeader}>
+                <tr className={css.tableHeaderRow}>
+                  <th className={css.tableHeaderCell}>
+                    <span className={css.circeBoldBlack18px}>Date</span>
+                  </th>
+                  <th className={css.tableHeaderCell}>
+                    <span className={css.circeBoldBlack18px}>Type</span>
+                  </th>
+                  <th className={css.tableHeaderCell}>
+                    <span className={css.circeBoldBlack18px}>Category</span>
+                  </th>
+                  <th className={css.tableHeaderCell}>
+                    <span className={css.circeBoldBlack18px}>Comment</span>
+                  </th>
+                  <th className={css.tableHeaderCell}>
+                    <span className={css.circeBoldBlack18px}>Sum</span>
+                  </th>
+                  <th className={css.tableHeaderCell}>
+                    <span className={css.circeBoldBlack18pxDelete}>Delete</span>
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr className={css.tableRow} key={item._id}>
+                  <td className={css.tableCell}>
+                    <span className={css.circeRegularNormalBlack16px}>
+                      {new Date(item.date).toLocaleDateString("pl-PL", {
+                        day: "2-digit",
+                        month: "2-digit",
+                        year: "numeric",
+                      })}
+                    </span>
+                  </td>
+                  <td className={`${css.tableCell} ${css.center}}`}>
+                    <span className={css.circeRegularNormalBlack16px}>
+                      {item.type === "INCOME" ? "+" : "-"}
+                    </span>
+                  </td>
+                  <td className={css.tableCell}>
+                    <span className={css.circeRegularNormalBlack16px}>
+                      {item.categoryId
+                        ? getCategoryName(item.categoryId)
+                        : "Other"}
+                    </span>
+                  </td>
+                  <td className={css.tableCell}>
+                    <span className={css.circeRegularNormalBlack16px}>
+                      {item.comment ? item.comment : "No comment"}
+                    </span>
+                  </td>
+                  <td className={css.tableCell}>
+                    <span
+                      className={
+                        item.type === "INCOME"
+                          ? `${css.circeBoldGreen16px}`
+                          : `${css.circeBoldRed16px}`
+                      }
+                    >
+                      {item.amount
+                        .toLocaleString("en-US", {
+                          minimumFractionDigits: 2,
+                          maximumFractionDigits: 2,
+                        })
+                        .replace(/,/g, "\u00A0")}
+                    </span>
+                  </td>
+                  <td className={css.tableCell}>
+                    <div className={css.editionsGroup}>
+                      <img
+                        className={css.edit}
+                        id={item._id}
+                        onClick={(e) => {
+                          setSelectedTransactionId(e.target.id);
+                          dispatch(toggleEditTransactionModalOpen());
+                        }}
+                        src={editIcon}
+                        alt="Vector 18"
+                      />
+                      {isTransactionEditModalOpen &&
+                        selectedTransactionId === item._id && (
+                          <EditTransaction id={selectedTransactionId} />
+                        )}
+                      <div
+                        className={css.btn}
+                        onClick={() => handleDelete(item._id)}
                       >
-                        {item.amount
-                          .toLocaleString("en-US", {
-                            minimumFractionDigits: 2,
-                            maximumFractionDigits: 2,
-                          })
-                          .replace(/,/g, "\u00A0")}
-                      </span>
-                    </td>
-                    <td className={css.tableCell}>
-                      <div className={css.editionsGroup}>
-                        <img
-                          className={css.edit}
-                          id={item._id}
-                          onClick={(e) => {
-                            setSelectedTransactionId(e.target.id);
-                            dispatch(toggleEditTransactionModalOpen());
-                          }}
-                          src={editIcon}
-                          alt="Vector 18"
-                        />
-                        {isTransactionEditModalOpen &&
-                          selectedTransactionId === item._id && (
-                            <EditTransaction id={selectedTransactionId} />
-                          )}
                         <div
-                          className={css.btn}
-                          onClick={() => handleDelete(item._id)}
+                          className={`${css.delete} ${css.circeRegularNormalWhite14px}`}
                         >
-                          <div
-                            className={`${css.delete} ${css.circeRegularNormalWhite14px}`}
-                          >
-                            <span className={css.circeRegularNormalWhite14px}>
-                              Delete
-                            </span>
-                          </div>
+                          <span className={css.circeRegularNormalWhite14px}>
+                            Delete
+                          </span>
                         </div>
                       </div>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           ))
         )
       ) : (

@@ -2,112 +2,146 @@
 @import "../../stylesheet/vars.css";
 
 .currency {
-  width: 280px;
+  /* width: 280px; */
   height: 174px;
   color: var(--light-font-color);
+
+  /* for scaling */
+  margin-inline: 20px;
+  width: 100%;
 }
 .currency__titles {
   display: flex;
+  /* justify-content: center; */
   align-items: center;
   background-color: var(--inactive-nav-color);
   border-radius: 30px 30px 0px 0px;
   margin: 0;
-  padding: 0;
+  /* padding: 0; */
   height: 50px;
   list-style: none;
+
+  /* for scaling */
+  justify-content: space-around;
+  padding-inline: 20px;
 }
 .currency__title {
-  font-family: 'Circe';
+  font-family: "Circe";
   font-weight: 700;
   font-size: 18px;
   line-height: 1.5;
 }
-.currency__title:first-child {
-    padding-left: 20px;
+/* .currency__title:first-child {
+  padding-left: 20px;
 }
 .currency__title:nth-child(2) {
-    padding-left: 24px;
-    padding-right: 44px;
+  padding-left: 24px;
+  padding-right: 44px;
 }
 .currency__title:last-child {
-    padding-right: 17px;
-}
+  padding-right: 17px;
+} */
 .currency__list {
   height: 124px;
-  font-family: 'Circe';
-   font-weight: 400;
+  font-family: "Circe";
+  font-weight: 400;
   font-size: 16px;
   line-height: 1.5;
   background-color: var(--primary-brand-color);
   border-radius: 0px 0px 30px 30px;
-  background-image: url('../../assets/icons/currencyBackground.svg');
+  background-image: url("../../assets/icons/currencyBackground.svg");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: bottom center;
   margin: 0;
   list-style: none;
   padding: 0 20px;
+
+  /* for scaling */
+  display: flex;
+  flex-direction: column;
 }
 .currency__item {
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 12px 0;
 }
 .currency__item:last-child {
-    padding: 0;
+  padding: 0;
 }
 
 /*Tablet*/
 
 @media screen and (min-width: 768px) {
-.currency {
-    width: 336px;
+  .currency {
+    /* width: 336px; */
     height: 182px;
-}
-.currency__list {
+
+    /* for scaling */
+    width: 100%;
+  }
+  .currency__list {
     height: 132px;
-}
-.currency__title:nth-child(2) {
-    padding-left: 42px;
-    padding-right: 74px;
-}
-.currency__title:last-child {
-    padding-right: 25px;
-}
-.currency__item {
-  padding: 16px 0;
-}
+
+    /* for scaling */
+    display: flex;
+    flex-direction: column;
+  }
+  .currency__titles {
+    /* for scaling */
+    justify-content: space-around;
+    padding-inline: 20px;
+  }
+  .currency__title:first-child {
+    padding-left: 0;
+  }
+  .currency__title:nth-child(2) {
+    /* padding-left: 42px;
+    padding-right: 74px; */
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .currency__title:last-child {
+    /* padding-right: 25px; */
+    padding-right: 0;
+  }
+  .currency__item {
+    padding: 16px 0;
+  }
 }
 
 /*Desktop*/
 
 @media screen and (min-width: 1280px) {
-.currency {
+  .currency {
     width: 393px;
     height: 331px;
-}
-.currency__titles {
-  height: 60px;
-}
-.currency__title:first-child {
+  }
+  .currency__titles {
+    height: 60px;
+    justify-content: center;
+    padding: 0;
+  }
+  .currency__title:first-child {
     padding-left: 44px;
-}
-.currency__title:nth-child(2) {
+  }
+  .currency__title:nth-child(2) {
     padding-left: 40px;
     padding-right: 70px;
-}
-.currency__title:last-child {
+  }
+  .currency__title:last-child {
     padding-right: 64px;
-}
-.currency__list {
-  height: 271px;
-  padding: 0 61px 0 58px;
-}
-.currency__item {
-  padding: 20px 0;
-}
-.currency__item:last-child {
+  }
+  .currency__list {
+    height: 271px;
+    padding: 0 61px 0 58px;
+  }
+  .currency__item {
+    justify-content: space-between;
+    padding: 20px 0;
+  }
+  .currency__item:last-child {
     padding-top: 4px;
-}
+  }
 }
