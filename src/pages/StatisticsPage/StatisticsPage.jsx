@@ -4,8 +4,8 @@ import css from "./StatisticsPage.module.css";
 import Header from "../../components/Header/Header";
 import { Navigation } from "../../components/Navigation/Navigation";
 import { Balance } from "../../components/Balance/Balance";
-import StatisticsContainer from "../../components/StatisticsContainer/StatisticsContainer";
 import Currency from "../../components/Currency/Currency";
+import StatisticsContainer from "../../components/StatisticsContainer/StatisticsContainer";
 // import DashboardPage from "../DashboardPage/DashboardPage";
 // import { Dashboard } from "@mui/icons-material";
 
