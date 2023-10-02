@@ -1,6 +1,6 @@
-@import "../../stylesheet/fonts.css";
-@import "../../stylesheet/vars.css";
 
+@import "../../stylesheet/vars.css";
+@import "../../stylesheet/fonts.css";
 .containerBackground {
   background: rgba(255, 255, 255, 0.4);
   backdrop-filter: blur(25px);

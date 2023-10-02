@@ -1,6 +1,6 @@
-@import "../../stylesheet/fonts.css";
-@import "../../stylesheet/vars.css";
 
+@import "../../stylesheet/vars.css";
+@import "../../stylesheet/fonts.css";
 .addButton {
   position: fixed;
   display: flex;

@@ -1,5 +1,6 @@
-@import "../../stylesheet/fonts.css";
 @import '../../stylesheet/vars.css';
+@import "../../stylesheet/fonts.css";
+
 
 .balance {
   height: 80px;

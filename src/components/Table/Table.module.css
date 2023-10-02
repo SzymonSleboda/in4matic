@@ -1,6 +1,5 @@
-@import "../../stylesheet/fonts.css";
 @import "../../stylesheet/vars.css";
-
+@import "../../stylesheet/fonts.css";
 .noData {
   font-family: "Poppins";
   text-align: center;

@@ -1,6 +1,6 @@
-@import "../../stylesheet/fonts.css";
-@import "../../stylesheet/vars.css";
 
+@import "../../stylesheet/vars.css";
+@import "../../stylesheet/fonts.css";
 /*Tablet*/
 @media screen and (min-width: 768px) {
   .mainContainer {
