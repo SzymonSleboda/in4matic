@@ -38,16 +38,19 @@ const authSlice = createSlice({
         state.token = null;
       })
       .addCase(login.fulfilled, (state, action) => {
+        // console.log({ action })
         state.user = action.payload.user;
-        state.token = action.payload.token;
+        state.token = action.payload.accessToken;
+        // const x = state.token;
+        // console.log({ x });
       })
       .addCase(login.rejected, (state, action) => {})
       .addMatcher(
         isAnyOf(register.fulfilled, login.fulfilled),
-        (state, { payload: { user, token } }) => {
+        (state, { payload: { user, accessToken } }) => {
           state.isLoading = false;
           state.user = user;
-          state.token = token;
+          state.token = accessToken; // accessToken
 
           state.error = null;
         }
