@@ -1,5 +1,6 @@
 import React from "react"; // Import React
-import s from "../DashboardPage/DashboardPage.module.css";
+// import s from "../DashboardPage/DashboardPage.module.css";
+import s from "../StatisticsPage/Spage.module.css";
 import Header from "../../components/Header/Header";
 // import HomeTab from "../../components/HomeTab/HomeTab";
 import { Navigation } from "../../components/Navigation/Navigation";
@@ -63,7 +64,7 @@ export default function StatisticsPage({ children }) {
             )}
           </div>
           {deviceType !== "desktop" && (
-            <div className={s.dashboard__table}>
+            <div>
               <StatisticsContainer />
             </div>
           )}
