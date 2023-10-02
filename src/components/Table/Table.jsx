@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { selectIsLoading } from "../../redux/transactions/transactions-selectors";
+import { selectIsEditTransactionModalOpen } from "../../redux/global/global-selectors";
 import { toggleEditTransactionModalOpen } from "../../redux/global/global-slice";
 import { EditTransaction } from "../EditTransaction/EditTransaction";
 import { deleteTransaction } from "../../redux/transactions/transactions-operations";
@@ -16,7 +17,7 @@ const Table = () => {
   const [selectedTransactionId, setSelectedTransactionId] = useState(null);
   const dispatch = useDispatch();
   const isTransactionEditModalOpen = useSelector(
-    toggleEditTransactionModalOpen
+    selectIsEditTransactionModalOpen
   );
 
   useEffect(() => {
@@ -64,7 +65,7 @@ const Table = () => {
           data.map((item) => (
             <table className={css.table}>
               <thead className={css.tableHeader}>
-                <tr className={css.tableHeaderRow}>
+                <tr className={css.tableHeaderRow} key={item._id}>
                   <th className={css.tableHeaderCell}>
                     <span className={css.circeBoldBlack18px}>Date</span>
                   </th>
@@ -253,7 +254,7 @@ const Table = () => {
                           setSelectedTransactionId(e.target.id);
                           dispatch(toggleEditTransactionModalOpen());
                         }}
-                        src={""}
+                        src={editIcon}
                         alt="Vector 18"
                       />
                       {isTransactionEditModalOpen &&
