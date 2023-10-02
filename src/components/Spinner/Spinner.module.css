@@ -1,25 +1,38 @@
+.aaa {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* transform: translateX(50%); */
+  margin: auto;
+}
 .loader {
   transform: translateZ(1px);
 }
 .loader:after {
-  content: '$';
+  content: "$";
   display: inline-block;
-  width: 48px;
-  height: 48px;
+  width: 96px;
+  height: 96px;
   border-radius: 50%;
   text-align: center;
-  line-height:40px;
-  font-size: 32px;
+  line-height: 88px;
+  font-size: 64px;
   font-weight: bold;
-  background: #FFD700;
-  color: #DAA520;
-  border: 4px double ;
+  background: #ffd700;
+  color: #daa520;
+  border: 4px double;
   box-sizing: border-box;
-  box-shadow:  2px 2px 2px 1px rgba(0, 0, 0, .1);
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.1);
   animation: coin-flip 4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 @keyframes coin-flip {
-  0%, 100% {
+  0%,
+  100% {
     animation-timing-function: cubic-bezier(0.5, 0, 1, 0.5);
   }
   0% {

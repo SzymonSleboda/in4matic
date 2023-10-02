@@ -4,7 +4,7 @@
 .dashboard {
   background-color: var(--accent-background-color);
   width: 100vw;
-  height: 100vh;
+  height: 126vh;
 }
 .dashboard__content {
   padding: 12px 20px;
@@ -30,7 +30,7 @@
     padding: 0;
     margin: 0;
     width: 100%;
-    height: 100vh;
+    height: 106vh;
     background-image: url(../../assets/images/RegistrationPage/Tablet/ellipse-tablet-purple.png),
       url(../../assets/images/RegistrationPage/Tablet/ellipse-tablet-pink.png);
     background-repeat: no-repeat, no-repeat;

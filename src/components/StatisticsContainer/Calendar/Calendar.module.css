@@ -32,7 +32,6 @@
     cursor: pointer;
   }
   .yearBox {
-    /* margin-top: 20px; */
     cursor: pointer;
   }
   .calendarText {
@@ -42,6 +41,10 @@
     font-style: normal;
     font-weight: 400;
     line-height: normal;
+  }
+  .datetime {
+    max-width: 320px;
+    margin-top: -18px;
   }
 }
 @media screen and (min-width: 768px) {
@@ -63,6 +66,8 @@
   }
   .datetime {
     position: absolute;
+    margin-top: -18px;
+    width: 100px;
   }
 }
 

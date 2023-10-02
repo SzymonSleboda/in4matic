@@ -3,7 +3,7 @@ import css from "./Spinner.module.css";
 
 const SpinnerComponent = () => {
   return (
-    <div>
+    <div className={css.aaa}>
       <span className={css.loader}></span>
     </div>
   );
