@@ -40,8 +40,10 @@ const StatisticsContainer = () => {
           <h1 className={css.textTitle}>Statistics</h1>
           <DataDoughnut statistic={data} />
         </div>
-        <div className={css.containerDiagramTab}>
-          <Calendar setMonthAmount={setMonth} setYearAmount={setYear} />
+        <div>
+          <div>
+            <Calendar setMonthAmount={setMonth} setYearAmount={setYear} />
+          </div>
           <DiagramTab statistic={data} />
         </div>
       </div>
