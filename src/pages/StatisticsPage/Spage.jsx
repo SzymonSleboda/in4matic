@@ -1,8 +1,9 @@
 import React from "react"; // Import React
-
 // import s from "../DashboardPage/DashboardPage.module.css";
 import s from "../StatisticsPage/Spage.module.css";
+
 import { useLocation } from "react-router-dom";
+
 import Header from "../../components/Header/Header";
 // import HomeTab from "../../components/HomeTab/HomeTab";
 import { useDeviceSize } from "../../hooks/useDeviceSize";
@@ -11,6 +12,7 @@ import { Balance } from "../../components/Balance/Balance";
 import Currency from "../../components/Currency/Currency";
 // import { ButtonAddTransactions } from "../../components/ButtonAddTransactions/ButtonAddTransactions";
 import StatisticsContainer from "../../components/StatisticsContainer/StatisticsContainer";
+import { useLocation } from "react-router-dom";
 
 export default function StatisticsPage({ children }) {
   const { deviceType } = useDeviceSize();
