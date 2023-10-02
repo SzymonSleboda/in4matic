@@ -7,7 +7,7 @@ import { RegistrationPage } from "./pages/RegistrationPage/RegistrationPage";
 import  SpinnerComponent  from "./components/Spinner/Spinner";
 
 const DashboardPage = lazy(() => import("./pages/DashboardPage/DashboardPage"));
-const StatisticsPage = lazy(() => import("./pages/StatisticsPage/Spage"));
+const Spage = lazy(() => import("./pages/StatisticsPage/Spage"));
 const CurrencyPage = lazy(() => import("./pages/CurrencyPage/CurrencyPage"));
 
 export const App = () => {
@@ -19,7 +19,7 @@ export const App = () => {
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegistrationPage />} />
           <Route path="/home" element={<DashboardPage />} />
-          <Route path="/diagram" element={<StatisticsPage />} />
+          <Route path="/diagram" element={<Spage />} />
           <Route path="/currency" element={<CurrencyPage />} />
           <Route path="*" element={<Navigate to="/login" />} />
         </Routes>

@@ -1,6 +1,8 @@
 import React from "react"; // Import React
-import { useLocation } from "react-router-dom";
-import s from "../DashboardPage/DashboardPage.module.css";
+
+// import s from "../DashboardPage/DashboardPage.module.css";
+import s from "../StatisticsPage/Spage.module.css";
+
 import Header from "../../components/Header/Header";
 // import HomeTab from "../../components/HomeTab/HomeTab";
 import { useDeviceSize } from "../../hooks/useDeviceSize";
@@ -63,7 +65,7 @@ export default function StatisticsPage({ children }) {
             )}
           </div>
           {deviceType !== "desktop" && (
-            <div className={s.dashboard__table}>
+            <div>
               <StatisticsContainer />
             </div>
           )}
