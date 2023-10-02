@@ -67,9 +67,11 @@ export default function StatisticsPage({ children }) {
               <StatisticsContainer />
             </div>
           )}
-          {/* <div>
-            <ButtonAddTransactions />
-          </div> */}
+          {
+            <div className={s.invisibleBox}>
+              {/* <ButtonAddTransactions /> */}
+            </div>
+          }
           {deviceType !== "desktop" && children}
         </div>
       </div>

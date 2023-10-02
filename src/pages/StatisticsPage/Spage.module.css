@@ -98,6 +98,9 @@
     padding-top: 0;
     margin-bottom: 32px;
   }
+  .invisibleBox {
+    width: 20px;
+  }
 }
 
 @media screen and (min-width: 1300px) {
