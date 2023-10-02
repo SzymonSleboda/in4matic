@@ -9,10 +9,11 @@ export const addTransaction = createAsyncThunk(
   "transactions/addTransaction",
   async (payload, { rejectWithValue }) => {
     try {
-      const response = await axios.post(`/transactions`, payload);
+      const { data } = await axios.post(`/transactions`, payload);
       toast.success("Your transaction is added!");
-      return response.data.data;
+      return data;
     } catch (error) {
+      // console.log({ error });
       return rejectWithValue(error);
     }
   }
@@ -20,14 +21,15 @@ export const addTransaction = createAsyncThunk(
 
 export const getTransactions = createAsyncThunk(
   "categories/getAllTransactions",
-  async ({ accessToken }, { rejectWithValue }) => {
+  async ({ token }, { rejectWithValue }) => {
     try {
-      const response = await axios.get(`/transactions`, {
+      console.log({ token, transAxios: axios });
+      const {data} = await axios.get(`/transactions`, {
         headers: {
-          Authorization: `Bearer ${accessToken}`,
+          Authorization: `Bearer ${token}`,
         },
       });
-      return response.data.data;
+      return data;
     } catch (error) {
       return rejectWithValue(error.message);
     }

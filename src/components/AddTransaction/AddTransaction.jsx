@@ -19,10 +19,12 @@ import DateComponent from "./DateComponent/DateComponent";
 import SelectComponent from "./SelectComponent/SelectComponent.jsx";
 import css from "./AddTransaction.module.css";
 
+// to utils
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
 
+// should be extracted to constants
 const TRANSACTION_TYPE = {
   EXPENSE: "EXPENSE",
   INCOME: "INCOME",
@@ -37,7 +39,7 @@ const defaultState = {
 };
 
 export const AddTransaction = () => {
-  const isTransactionModalOpen = useSelector(selectIsTransactionModalOpen);
+  const isTransactionModalOpen = useSelector(selectIsTransactionModalOpen); // could be a custom hook exposing modal state.
   const categories = useSelector(selectCategories);
   const token = useSelector(selectToken);
   const [transactionState, setTransactionState] = useState(defaultState);
@@ -51,7 +53,7 @@ export const AddTransaction = () => {
     if (!Array.isArray(categories) || categories.length === 0) {
       dispatch(getCategories());
     }
-  }, [isTransactionModalOpen, categories, dispatch]);
+  }, [isTransactionModalOpen, dispatch]);
 
   const handleBackdropClick = (e) => {
     if (e.target === e.currentTarget) {
@@ -99,33 +101,47 @@ export const AddTransaction = () => {
     setTransactionState((prev) => ({ ...prev, date: selectedDate._d }));
   };
 
-  const handleSubmit = (values, actions) => {
+  console.log({ token })
+  const handleSubmit = async (values, actions) => {
     const { amount, comment } = values;
     const month = transactionState.date.getMonth() + 1;
     const year = transactionState.date.getFullYear();
 
     let selectedCategoryName = "Income";
 
+    console.log("dupa 2")
     if (transactionState.type === TRANSACTION_TYPE.EXPENSE) {
       const selectedCategory = categories.find(
         (el) => el.id === transactionState.categoryId
-      );
+      ) ?? { category: "Products" };
+
+      console.log({ selectedCategory });
 
       selectedCategoryName = capitalizeFirstLetter(selectedCategory.category);
+      console.log({ selectedCategoryName });
     }
+
+    console.log("SDFADFAS")
+
+    // await sleep(5000);
+
 
     const formData = {
       category: selectedCategoryName,
       type: transactionState.type === TRANSACTION_TYPE.INCOME ? true : false,
-      date: transactionState.date,
+      date: transactionState.date.toISOString().split("T")[0],
       month,
       year,
       comment,
       amount: Number(amount),
       owner: id,
+      isIncome: selectedCategoryName === "Income",
     };
 
+    console.log({ formData });
+
     dispatch(addTransaction(formData));
+
     setTransactionState((prev) => ({
       ...prev,
       type: TRANSACTION_TYPE.EXPENSE,
@@ -155,7 +171,8 @@ export const AddTransaction = () => {
         setTransactionState((prev) => ({ ...prev, nextValues }));
       }}
     >
-      <div className={css.modalForm}>
+      {(formik) => 
+      <form className={css.modalForm} onSubmit={formik.handleSubmit}>
         {" "}
         {isTransactionModalOpen && (
           <div className={css.overlay} onClick={handleBackdropClick}>
@@ -252,6 +269,7 @@ export const AddTransaction = () => {
                     ADD
                   </button>
                   <button
+                    type="button"
                     title="cancel"
                     className={css.button}
                     onClick={() => {
@@ -265,7 +283,8 @@ export const AddTransaction = () => {
             </div>
           </div>
         )}
-      </div>
+      </form>
+    }
     </Formik>
   );
 };

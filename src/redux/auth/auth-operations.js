@@ -7,10 +7,12 @@ axios.defaults.baseURL = "https://in4matic-4c2abd694526.herokuapp.com/";
 
 const token = {
   set(accessToken) {
+    console.log("TOKEN IS SET")
     axios.defaults.headers.common.Authorization = `Bearer ${accessToken}`;
   },
 
   unset() {
+    console.log("UNSET TOKEN")
     axios.defaults.headers.common.Authorization = "";
   },
 };
@@ -21,6 +23,7 @@ export const register = createAsyncThunk(
     try {
       const { data } = await axios.post("/users/register", credentials);
       token.set(data.accessToken);
+      
       toast.success("Registration is successful!");
       return data;
     } catch (error) {
@@ -35,6 +38,7 @@ export const login = createAsyncThunk(
     try {
       const { data } = await axios.post("/users/login", credentials);
       token.set(data.accessToken);
+      console.log({ authAxios: axios });
       toast.success(`Welcome, ${data.user.name}!`);
       return data;
     } catch (error) {

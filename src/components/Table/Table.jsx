@@ -11,7 +11,10 @@ import { useState, useEffect } from "react";
 import { getTransactions } from "../../redux/transactions/transactions-operations";
 
 const Table = () => {
-  let data = useSelector((state) => state.transactions.items);
+  let data = useSelector((state) => {
+    console.log({ state });
+    return state.transactions.transactions;
+  });
   if (!data) data = [];
   const isLoading = useSelector(selectIsLoading);
   const [selectedTransactionId, setSelectedTransactionId] = useState(null);
@@ -19,6 +22,8 @@ const Table = () => {
   const isTransactionEditModalOpen = useSelector(
     selectIsEditTransactionModalOpen
   );
+
+console.log({data})
 
   useEffect(() => {
     dispatch(getTransactions());
