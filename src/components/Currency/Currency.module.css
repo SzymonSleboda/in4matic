@@ -7,7 +7,7 @@
   color: var(--light-font-color);
 
   /* for scaling */
-  margin-inline: 20px;
+  /* margin-inline: 20px; */
   width: 100%;
 }
 .currency__titles {

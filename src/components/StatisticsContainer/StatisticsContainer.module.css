@@ -62,7 +62,7 @@ h1 {
     backdrop-filter: blur(25px);
     width: 678px;
     padding: 12px;
-    margin: 12px;
+    /* margin: 12px; */
     margin-left: 0;
   }
   .container {
