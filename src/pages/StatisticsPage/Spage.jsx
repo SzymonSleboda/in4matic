@@ -1,13 +1,13 @@
 import React from "react"; // Import React
+import { useLocation } from "react-router-dom";
 import s from "../DashboardPage/DashboardPage.module.css";
 import Header from "../../components/Header/Header";
 // import HomeTab from "../../components/HomeTab/HomeTab";
+import { useDeviceSize } from "../../hooks/useDeviceSize";
 import { Navigation } from "../../components/Navigation/Navigation";
 import { Balance } from "../../components/Balance/Balance";
 import Currency from "../../components/Currency/Currency";
 // import { ButtonAddTransactions } from "../../components/ButtonAddTransactions/ButtonAddTransactions";
-import { useDeviceSize } from "../../hooks/useDeviceSize";
-import { useLocation } from "react-router-dom";
 import StatisticsContainer from "../../components/StatisticsContainer/StatisticsContainer";
 
 export default function StatisticsPage({ children }) {
