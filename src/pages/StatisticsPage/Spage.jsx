@@ -1,6 +1,9 @@
 import React from "react"; // Import React
 // import s from "../DashboardPage/DashboardPage.module.css";
 import s from "../StatisticsPage/Spage.module.css";
+
+import { useLocation } from "react-router-dom";
+
 import Header from "../../components/Header/Header";
 // import HomeTab from "../../components/HomeTab/HomeTab";
 import { useDeviceSize } from "../../hooks/useDeviceSize";
