@@ -5,11 +5,11 @@ axios.defaults.baseURL = "https://in4matic-4c2abd694526.herokuapp.com/";
 
 export const getCurrentUser = createAsyncThunk(
   "user/getCurrentUser",
-  async ({ accessToken }, { rejectWithValue }) => {
+  async ({ token }, { rejectWithValue }) => {
     try {
       const { data } = await axios.get(`/users/profile`, {
         headers: {
-          Authorization: `Bearer ${accessToken}`,
+          Authorization: `Bearer ${token}`,
         },
       });
       return data;

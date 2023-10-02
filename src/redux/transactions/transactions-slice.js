@@ -38,9 +38,10 @@ const transactionsSlice = createSlice({
         state.isLoading = true;
         state.error = null;
       })
-      .addCase(deleteTransaction.fulfilled, (state) => {
+      .addCase(deleteTransaction.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
+        state.transactions = state.transactions.filter((item) => item._id !== action.payload._id);
       })
       .addCase(deleteTransaction.rejected, (state, { payload }) => {
         state.isLoading = false;
@@ -66,6 +67,7 @@ const transactionsSlice = createSlice({
         state.error = null;
       })
       .addCase(getTransactions.fulfilled, (state, { payload }) => {
+        console.log({payload})
         state.transactions = payload.sort((a, b) => {
           return new Date(b.date) - new Date(a.date);
         });
