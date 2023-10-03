@@ -9,11 +9,12 @@ import css from "./Table.module.css";
 import editIcon from "./EditIcon.png";
 import { useState, useEffect } from "react";
 import { getTransactions } from "../../redux/transactions/transactions-operations";
+import { nanoid } from "nanoid";
 
 const Table = () => {
   let data = useSelector((state) => {
     // console.log({ state });
-    console.log(state.categories)
+    console.log(state.categories);
     return state.transactions.transactions;
   });
   if (!data) data = [];
@@ -24,7 +25,7 @@ const Table = () => {
     selectIsEditTransactionModalOpen
   );
 
-console.log({data})
+  console.log({ data });
 
   useEffect(() => {
     dispatch(getTransactions());
@@ -35,122 +36,66 @@ console.log({data})
   };
   const isMobile = window.innerWidth <= 768;
 
-  // const categories = [
-  //   { _id: "6471096a9af3d469961187e6", name: "Main expenses", type: "EXPENSE" },
-  //   { _id: "6471096a9af3d469961187e7", name: "Products", type: "EXPENSE" },
-  //   { _id: "6471096a9af3d469961187e8", name: "Car", type: "EXPENSE" },
-  //   { _id: "6471096a9af3d469961187e9", name: "Self care", type: "EXPENSE" },
-  //   { _id: "6471096a9af3d469961187ea", name: "Child care", type: "EXPENSE" },
-  //   {
-  //     _id: "6471096a9af3d469961187eb",
-  //     name: "Household products",
-  //     type: "EXPENSE",
-  //   },
-  //   { _id: "6471096a9af3d469961187ec", name: "Education", type: "EXPENSE" },
-  //   { _id: "6471096a9af3d469961187ed", name: "Leisure", type: "EXPENSE" },
-  //   { _id: "6471096a9af3d469961187ef", name: "Entertainment", type: "EXPENSE" },
-  //   { _id: "6471096a9af3d469961187f0", name: "Income", type: "INCOME" },
-  //   {
-  //     _id: "6473544cf09b05df28a84d32",
-  //     name: "Other Expenses",
-  //     type: "EXPENSE",
-  //   },
-  // ];
-
-
-
-  console.log(data)
+  console.log(data);
 
   return (
     <div className={css.tableContainer}>
       {isMobile ? (
-        data.length === 0 ? (
-          <p className={css.noData}>No transactions found.</p>
-        ) : (
-          data.map((item) => (
-            <table className={css.table}>
-              <thead className={css.tableHeader}>
-                <tr className={css.tableHeaderRow} key={item._id}>
-                  <th className={css.tableHeaderCell}>
-                    <span className={css.circeBoldBlack18px}>Date</span>
-                  </th>
-                  <th className={css.tableHeaderCell}>
-                    <span className={css.circeBoldBlack18px}>Type</span>
-                  </th>
-                  <th className={css.tableHeaderCell}>
-                    <span className={css.circeBoldBlack18px}>Category</span>
-                  </th>
-                  <th className={css.tableHeaderCell}>
-                    <span className={css.circeBoldBlack18px}>Comment</span>
-                  </th>
-                  <th className={css.tableHeaderCell}>
-                    <span className={css.circeBoldBlack18px}>Sum</span>
-                  </th>
-                  <th className={css.tableHeaderCell}>
-                    <span className={css.circeBoldBlack18pxDelete}>Delete</span>
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr className={css.tableRow} key={item._id}>
-                  <td className={css.tableCell}>
-                    <span className={css.circeRegularNormalBlack16px}>
-                      {new Date(item.date).toLocaleDateString("pl-PL", {
-                        day: "2-digit",
-                        month: "2-digit",
-                        year: "numeric",
-                      })}
-                    </span>
-                  </td>
-                  <td className={`${css.tableCell} ${css.center}}`}>
-                    <span className={css.circeRegularNormalBlack16px}>
-                      {item.type === "INCOME" ? "+" : "-"}
-                    </span>
-                  </td>
-                  <td className={css.tableCell}>
-                    <span className={css.circeRegularNormalBlack16px}>
-                      {item.category
-                        ? item.category
-                        : "Other"}
-                    </span>
-                  </td>
-                  <td className={css.tableCell}>
-                    <span className={css.circeRegularNormalBlack16px}>
-                      {item.comment ? item.comment : "No comment"}
-                    </span>
-                  </td>
-                  <td className={css.tableCell}>
-                    <span
-                      className={
-                        item.type === "INCOME"
-                          ? `${css.circeBoldGreen16px}`
-                          : `${css.circeBoldRed16px}`
-                      }
-                    >
-                      {item.amount
-                        .toLocaleString("en-US", {
-                          minimumFractionDigits: 2,
-                          maximumFractionDigits: 2,
-                        })
-                        .replace(/,/g, "\u00A0")}
-                    </span>
-                  </td>
-                  <td className={css.tableCell}>
-                    <div className={css.editionsGroup}>
-                      <img
-                        className={css.edit}
-                        id={item._id}
-                        onClick={(e) => {
-                          setSelectedTransactionId(e.target.id);
-                          dispatch(toggleEditTransactionModalOpen());
-                        }}
-                        src={editIcon}
-                        alt="Vector 18"
-                      />
-                      {isTransactionEditModalOpen &&
-                        selectedTransactionId === item._id && (
-                          <EditTransaction id={selectedTransactionId} />
-                        )}
+        <>
+          {data.length ? (
+            <div className={css.wrapper}>
+              {data.map((item) => (
+                <div key={item._id || nanoid()} className={css.element}>
+                  <ul
+                    key={nanoid()}
+                    className={
+                      item.type === "+"
+                        ? css.greenElementList
+                        : css.redElementList
+                    }
+                  >
+                    <li className={css.listElement}>
+                      <span className={css.listElementTitle}>Date</span>
+                      <span>
+                        {new Date(item.date)
+                          .toLocaleDateString("pl-PL", {
+                            day: "2-digit",
+                            month: "2-digit",
+                            year: "numeric",
+                          })
+                          .replace(/\//g, "-")}{" "}
+                      </span>
+                    </li>
+                    <li className={css.listElement}>
+                      <span className={css.listElementTitle}>Type</span>
+                      <span> {item.type === "INCOME" ? "+" : "-"}</span>
+                    </li>
+                    <li className={css.listElement}>
+                      <span className={css.listElementTitle}>Category</span>
+                      <span>{item.category ? item.category : "Other"}</span>
+                    </li>
+                    <li className={css.listElement}>
+                      <span className={css.listElementTitle}>Comment</span>
+                      <span>{item.comment ? item.comment : "No comment"}</span>
+                    </li>
+                    <li className={css.listElement}>
+                      <span className={css.listElementTitle}>Sum</span>
+                      <span
+                        className={
+                          item.type === "INCOME"
+                            ? `${css.circeBoldGreen16px}`
+                            : `${css.circeBoldRed16px}`
+                        }
+                      >
+                        {item.amount
+                          .toLocaleString("en-US", {
+                            minimumFractionDigits: 2,
+                            maximumFractionDigits: 2,
+                          })
+                          .replace(/,/g, "\u00A0")}
+                      </span>
+                    </li>
+                    <li className={css.listElement}>
                       <div
                         className={css.btn}
                         onClick={() => handleDelete(item._id)}
@@ -163,13 +108,36 @@ console.log({data})
                           </span>
                         </div>
                       </div>
-                    </div>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          ))
-        )
+                      <ul key={nanoid()} className={css.editList}>
+                        <li>
+                          <div
+                            className={css.edit}
+                            type="button"
+                            id={item._id}
+                            onClick={(e) => {
+                              setSelectedTransactionId(e.target.id);
+                              dispatch(toggleEditTransactionModalOpen());
+                            }}
+                          >
+                            {isTransactionEditModalOpen &&
+                              selectedTransactionId === item._id && (
+                                <EditTransaction id={selectedTransactionId} />
+                              )}
+                            Edit
+                          </div>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+              ))}
+            </div>
+          ) : !isLoading ? (
+            <div>
+              <h2 className={css.noData}>There are no transactions</h2>
+            </div>
+          ) : null}
+        </>
       ) : (
         <table className={css.table}>
           <thead>
@@ -224,9 +192,7 @@ console.log({data})
                   </td>
                   <td className={css.tableCell}>
                     <span className={css.circeRegularNormalBlack16px}>
-                      {item.category
-                        ? item.category
-                        : "Other"}
+                      {item.category ? item.category : "Other"}
                     </span>
                   </td>
                   <td className={css.tableCell}>

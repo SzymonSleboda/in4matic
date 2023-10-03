@@ -19,6 +19,7 @@
     "css-loader": "^6.8.1",
     "formik": "^2.4.5",
     "mini-css-extract-plugin": "^2.7.6",
+    "nanoid": "^5.0.1",
     "notiflix": "^3.2.6",
     "postcss-loader": "^7.3.3",
     "react": "^18.2.0",
