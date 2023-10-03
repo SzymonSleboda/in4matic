@@ -1,17 +1,5 @@
-
 @import "../../stylesheet/vars.css";
 @import "../../stylesheet/fonts.css";
-.containerBackground {
-  background: rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(25px);
-  /* height: 80vh; */
-  width: 800px;
-  padding-top: 40px;
-  padding-bottom: 24px;
-  padding-left: 32px;
-  padding-right: 32px;
-  border-radius: 30px;
-}
 
 .containerChart {
   margin-right: 62px;
@@ -28,16 +16,7 @@ h1 {
   line-height: 45px;
 }
 
-
-@media screen and (min-width: 320px) and (max-width: 767px) {
-  .containerBackground {
-    /* background: var(--accent-background-color); */
-    background: var(--accent-background-color);
-    /* backdrop-filter: blur(25px);  */
-    width: 320px;
-    padding: 0;
-    height: 1300px;
-  }
+@media screen and (max-width: 767px) {
   .containerChart {
     margin-left: 20px;
   }
@@ -45,31 +24,29 @@ h1 {
     margin-left: 0;
   }
   .container {
-  display: flex;
-  justify-content: space-between;
-  flex-direction: column;
-}
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
 }
 
-@media screen and (min-width: 768px) and (max-width: 1279px) {
+@media screen and (min-width: 768px) and (max-width: 1023px) {
   .containerDiagramTab {
     width: 395px;
     margin-right: 15px;
   }
-  .containerBackground {
-    /* background: var(--accent-background-color); */
-    background: rgba(255, 255, 255, 0.4);
-    backdrop-filter: blur(25px);
-    width: 678px;
-    padding: 12px;
-    /* margin: 12px; */
-    margin-left: 0;
-  }
+
   .container {
     justify-content: start;
     width: 580px;
   }
   .containerChart {
     margin: 0;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .containerChart {
+    margin-right: 64px;
   }
 }
