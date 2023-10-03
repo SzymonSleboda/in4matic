@@ -76,7 +76,11 @@
     gap: 28px;
   }
 }
+.dashboard__right {
+  overflow-y: auto;
+  max-height: 600px;
 
+}
 /*Desktop*/
 
 @media screen and (min-width: 1280px) {
