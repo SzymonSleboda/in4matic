@@ -23,7 +23,7 @@ const Table = () => {
     selectIsEditTransactionModalOpen
   );
 
-console.log({data})
+  console.log({ data });
 
   useEffect(() => {
     dispatch(getTransactions());
@@ -109,9 +109,7 @@ console.log({data})
                   </td>
                   <td className={css.tableCell}>
                     <span className={css.circeRegularNormalBlack16px}>
-                      {item.categoryId
-                        ? getCategoryName(item.categoryId)
-                        : "Other"}
+                      {item.category ? item.category : "Other"}
                     </span>
                   </td>
                   <td className={css.tableCell}>
