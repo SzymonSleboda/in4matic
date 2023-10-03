@@ -12,7 +12,8 @@ import { getTransactions } from "../../redux/transactions/transactions-operation
 
 const Table = () => {
   let data = useSelector((state) => {
-    console.log({ state });
+    // console.log({ state });
+    console.log(state.categories)
     return state.transactions.transactions;
   });
   if (!data) data = [];
@@ -23,7 +24,7 @@ const Table = () => {
     selectIsEditTransactionModalOpen
   );
 
-  console.log({ data });
+console.log({data})
 
   useEffect(() => {
     dispatch(getTransactions());
@@ -34,32 +35,31 @@ const Table = () => {
   };
   const isMobile = window.innerWidth <= 768;
 
-  const categories = [
-    { _id: "6471096a9af3d469961187e6", name: "Main expenses", type: "EXPENSE" },
-    { _id: "6471096a9af3d469961187e7", name: "Products", type: "EXPENSE" },
-    { _id: "6471096a9af3d469961187e8", name: "Car", type: "EXPENSE" },
-    { _id: "6471096a9af3d469961187e9", name: "Self care", type: "EXPENSE" },
-    { _id: "6471096a9af3d469961187ea", name: "Child care", type: "EXPENSE" },
-    {
-      _id: "6471096a9af3d469961187eb",
-      name: "Household products",
-      type: "EXPENSE",
-    },
-    { _id: "6471096a9af3d469961187ec", name: "Education", type: "EXPENSE" },
-    { _id: "6471096a9af3d469961187ed", name: "Leisure", type: "EXPENSE" },
-    { _id: "6471096a9af3d469961187ef", name: "Entertainment", type: "EXPENSE" },
-    { _id: "6471096a9af3d469961187f0", name: "Income", type: "INCOME" },
-    {
-      _id: "6473544cf09b05df28a84d32",
-      name: "Other Expenses",
-      type: "EXPENSE",
-    },
-  ];
+  // const categories = [
+  //   { _id: "6471096a9af3d469961187e6", name: "Main expenses", type: "EXPENSE" },
+  //   { _id: "6471096a9af3d469961187e7", name: "Products", type: "EXPENSE" },
+  //   { _id: "6471096a9af3d469961187e8", name: "Car", type: "EXPENSE" },
+  //   { _id: "6471096a9af3d469961187e9", name: "Self care", type: "EXPENSE" },
+  //   { _id: "6471096a9af3d469961187ea", name: "Child care", type: "EXPENSE" },
+  //   {
+  //     _id: "6471096a9af3d469961187eb",
+  //     name: "Household products",
+  //     type: "EXPENSE",
+  //   },
+  //   { _id: "6471096a9af3d469961187ec", name: "Education", type: "EXPENSE" },
+  //   { _id: "6471096a9af3d469961187ed", name: "Leisure", type: "EXPENSE" },
+  //   { _id: "6471096a9af3d469961187ef", name: "Entertainment", type: "EXPENSE" },
+  //   { _id: "6471096a9af3d469961187f0", name: "Income", type: "INCOME" },
+  //   {
+  //     _id: "6473544cf09b05df28a84d32",
+  //     name: "Other Expenses",
+  //     type: "EXPENSE",
+  //   },
+  // ];
 
-  const getCategoryName = (id) => {
-    const item = categories.find((item) => item._id === id);
-    return item ? item.name : "default";
-  };
+
+
+  console.log(data)
 
   return (
     <div className={css.tableContainer}>
@@ -109,7 +109,9 @@ const Table = () => {
                   </td>
                   <td className={css.tableCell}>
                     <span className={css.circeRegularNormalBlack16px}>
-                      {item.category ? item.category : "Other"}
+                      {item.category
+                        ? item.category
+                        : "Other"}
                     </span>
                   </td>
                   <td className={css.tableCell}>
@@ -222,8 +224,8 @@ const Table = () => {
                   </td>
                   <td className={css.tableCell}>
                     <span className={css.circeRegularNormalBlack16px}>
-                      {item.categoryId
-                        ? getCategoryName(item.categoryId)
+                      {item.category
+                        ? item.category
                         : "Other"}
                     </span>
                   </td>

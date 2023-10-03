@@ -4,7 +4,6 @@ import Select from "@mui/material/Select";
 import MenuItem from "@mui/material/MenuItem";
 import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
 import css from "./SelectComponent.module.css";
-
 const listOfCategories = [
   "Main expenses",
   "Products",
@@ -15,7 +14,6 @@ const listOfCategories = [
   "Education",
   "Leisure",
 ];
-
 const SelectComponent = ({ handleSetCategory }) => {
   const [category, setCategory] = useState("");
   const handleChange = (event) => {
@@ -23,7 +21,7 @@ const SelectComponent = ({ handleSetCategory }) => {
     setCategory(selectedCategory);
     handleSetCategory(selectedCategory);
   };
-
+  console.log("Category", category)
   return (
     <div className={css.SelectComponent}>
       <FormControl fullWidth variant="standard" bluronselect="true">
@@ -87,5 +85,4 @@ const SelectComponent = ({ handleSetCategory }) => {
     </div>
   );
 };
-
 export default SelectComponent;
