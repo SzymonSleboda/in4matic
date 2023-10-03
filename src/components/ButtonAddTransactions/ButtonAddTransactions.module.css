@@ -1,9 +1,9 @@
-
 @import "../../stylesheet/vars.css";
 @import "../../stylesheet/fonts.css";
 .addButton {
   position: fixed;
   display: flex;
+  margin-bottom: 20px;
   justify-content: center;
   align-items: center;
   bottom: 20px;
