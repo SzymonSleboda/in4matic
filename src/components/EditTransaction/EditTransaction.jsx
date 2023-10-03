@@ -175,119 +175,123 @@ export const EditTransaction = ({ id }) => {
         setTransactionState((prev) => ({ ...prev, nextValues }));
       }}
     >
-      <div className={css.modalForm}>
-        {" "}
-        {isEditTransactionModalOpen && (
-          <div className={css.overlay} onClick={handleBackdropClick}>
-            <div className={css.modalContainer}>
-              <div className={css.modalContainerTransaction}>
-                Edit transaction
-                <div className={css.switcher} style={{ position: "relative" }}>
-                  <span
-                    className={
-                      transactionState.type === TRANSACTION_TYPE.INCOME
-                        ? css.income
-                        : ""
-                    }
+      {(formik) => (
+        <form className={css.modalForm} onSubmit={formik.handleSubmit}>
+          {" "}
+          {selectIsEditTransactionModalOpen && (
+            <div className={css.overlay} onClick={handleBackdropClick}>
+              <div className={css.modalContainer}>
+                <h2 className={css.mainTitle}>Edit transaction</h2>
+                <div className={css.modalContainerTransaction}>
+                  <div
+                    className={css.switcher}
+                    style={{ position: "relative" }}
                   >
-                    Income
-                  </span>
-                  <label className={css.switcherBox}>
-                    <Field
-                      type="checkbox"
-                      name="type"
-                      onChange={handleCheckboxChange}
-                      className={css.switcherCheckbox}
-                      checked={
-                        transactionState.type === TRANSACTION_TYPE.EXPENSE
-                          ? true
-                          : false
+                    <span
+                      className={
+                        transactionState.type === TRANSACTION_TYPE.INCOME
+                          ? css.income
+                          : ""
                       }
-                    />
-                    <span className={css.switcherToggle}></span>
-                  </label>
-                  <span
-                    className={
-                      transactionState.type === TRANSACTION_TYPE.EXPENSE
-                        ? css.expense
-                        : ""
-                    }
-                  >
-                    Expense
-                  </span>
-                </div>
-                {transactionState.type === TRANSACTION_TYPE.EXPENSE && (
-                  <div className={css.categoryWrapper}>
-                    <label>
+                    >
+                      Income
+                    </span>
+                    <label className={css.switcherWrapper}>
                       <Field
-                        as="select"
-                        name="category"
-                        placeholder="Select a category"
-                        component={SelectComponent}
-                        options={categories.map((option) => {
-                          return {
+                        type="checkbox"
+                        name="type"
+                        onChange={handleCheckboxChange}
+                        className={css.switcherCheckbox}
+                        checked={
+                          transactionState.type === TRANSACTION_TYPE.EXPENSE
+                            ? true
+                            : false
+                        }
+                      />
+                      <span className={css.switcherToggle}></span>
+                    </label>
+                    <span
+                      className={
+                        transactionState.type === TRANSACTION_TYPE.EXPENSE
+                          ? css.expense
+                          : ""
+                      }
+                    >
+                      Expense
+                    </span>
+                  </div>
+                  {transactionState.type === TRANSACTION_TYPE.EXPENSE && (
+                    <div className={css.categoryWrapper}>
+                      <label>
+                        <Field
+                          className={css.select}
+                          name="category"
+                          placeholder="Select a category"
+                          component={SelectComponent}
+                          options={categories.map((option) => ({
                             value: option.id,
                             label: option.category,
-                          };
-                        })}
-                        handleSetCategory={handleSetCategory}
-                      />
-                    </label>
-                  </div>
-                )}
-                <div className={css.amountDateWrapper}>
-                  <div className={css.amountWrapper}>
-                    <label>
-                      <Field
-                        type="number"
-                        placeholder="0.00"
-                        name="amount"
-                        className={css["amount"]}
-                      />
-                    </label>
-                  </div>
+                          }))}
+                          handleSetCategory={handleSetCategory}
+                        />
+                      </label>
+                    </div>
+                  )}
 
-                  <div className={css.dateWrapper}>
-                    <label>
-                      <Field
-                        as="date"
-                        component={DateComponent}
-                        className={css["date"]}
-                        name="date"
-                        dateFormat="DD.MM.YYYY"
-                        timeFormat={false}
-                        value={transactionState.date}
-                        onChange={handleDateChange}
-                      />
-                    </label>
+                  <div className={css.amountDateWrapper}>
+                    <div className={css.amountWrapper}>
+                      <label>
+                        <Field
+                          type="number"
+                          placeholder="0.00"
+                          name="amount"
+                          className={css.amount}
+                        />
+                      </label>
+                    </div>
+                    <div className={css.dateWrapper}>
+                      <label>
+                        <Field
+                          as="date"
+                          component={DateComponent}
+                          className={css.date}
+                          name="date"
+                          dateFormat="DD.MM.YYYY"
+                          timeFormat={false}
+                          value={transactionState.date}
+                          onChange={handleDateChange}
+                        />
+                      </label>
+                    </div>
                   </div>
-                </div>
-                <Field
-                  as="textarea"
-                  rows={isMobile ? "5" : "1"}
-                  type="text"
-                  placeholder="Comment"
-                  name="comment"
-                />
-                <div className={css.buttonContainer}>
-                  <button title="add" className={css.button} type="submit">
-                    ADD
-                  </button>
-                  <button
-                    title="cancel"
-                    className={css.button}
-                    onClick={() => {
-                      dispatch(toggleEditTransactionModalOpen());
-                    }}
-                  >
-                    CANCEL
-                  </button>
+                  <Field
+                    className={css.textarea}
+                    rows={isMobile ? "5" : "1"}
+                    type="text"
+                    placeholder="Comment"
+                    name="comment"
+                  />
+                  <div className={css.buttonContainer}>
+                    <button title="add" className={css.button} type="submit">
+                      SAVE
+                    </button>
+                    <button
+                      type="button"
+                      title="cancel"
+                      className={css.button}
+                      onClick={() => {
+                        dispatch(toggleEditTransactionModalOpen());
+                      }}
+                    >
+                      CANCEL
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        )}
-      </div>
+          )}
+        </form>
+      )}
     </Formik>
   );
 };
